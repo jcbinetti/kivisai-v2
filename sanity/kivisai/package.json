@@ -1,0 +1,38 @@
+{
+  "name": "kivisai",
+  "private": true,
+  "version": "1.0.0",
+  "main": "package.json",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/vision": "^3.98.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "framer-motion": "^12.22.0",
+    "sanity": "^3.98.1",
+    "styled-components": "^6.1.18"
+  },
+  "devDependencies": {
+    "@sanity/eslint-config-studio": "^5.0.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.28",
+    "postcss": "^8.5.6",
+    "prettier": "^3.5",
+    "tailwindcss": "^4.1.11"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 100,
+    "bracketSpacing": false,
+    "singleQuote": true
+  }
+}

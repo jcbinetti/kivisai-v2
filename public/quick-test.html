@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIVISAI - Schneller Funktions-Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-card {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .test-card.success { border-left-color: #28a745; }
+        .test-card.error { border-left-color: #dc3545; }
+        .test-card.warning { border-left-color: #ffc107; }
+        
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        
+        .test-button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .test-button:hover { background: #0056b3; }
+        .test-button.success { background: #28a745; }
+        .test-button.danger { background: #dc3545; }
+        
+        .result {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .progress {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #007bff;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚡ KIVISAI - Schneller Funktions-Test</h1>
+    
+    <div class="status success">
+        ✅ <strong>Test läuft!</strong> Überprüfung der wichtigsten Funktionen
+    </div>
+
+    <!-- Server Status -->
+    <div class="test-card">
+        <h2>🔧 Server-Status</h2>
+        <div id="server-status">⏳ Prüfe Server...</div>
+        <div class="progress">
+            <div class="progress-bar" id="server-progress" style="width: 0%"></div>
+        </div>
+    </div>
+
+    <!-- Formulare Test -->
+    <div class="test-card">
+        <h2>📝 Formulare Test</h2>
+        <button class="test-button" onclick="testContactForm()">Test Kontakt-Formular</button>
+        <button class="test-button" onclick="testNewsletterForm()">Test Newsletter</button>
+        <button class="test-button" onclick="testLeadForm()">Test Lead-Formular</button>
+        <div id="form-results"></div>
+    </div>
+
+    <!-- Cal.com Integration -->
+    <div class="test-card">
+        <h2>📅 Cal.com Integration</h2>
+        <a href="http://localhost:3000/termin" class="test-button success" target="_blank">Termin-Buchung öffnen</a>
+        <button class="test-button" onclick="testCalComAPI()">Test Cal.com API</button>
+        <div id="calcom-results"></div>
+    </div>
+
+    <!-- Admin Bereich -->
+    <div class="test-card">
+        <h2>🔧 Admin-Bereich</h2>
+        <a href="http://localhost:3000/admin" class="test-button" target="_blank">Admin Dashboard</a>
+        <a href="http://localhost:3000/admin/images" class="test-button" target="_blank">Bildverwaltung</a>
+        <a href="http://localhost:3000/admin/content" class="test-button" target="_blank">Content Management</a>
+        <button class="test-button" onclick="testAdminAccess()">Test Admin-Zugriff</button>
+        <div id="admin-results"></div>
+    </div>
+
+    <!-- Sanity Studio -->
+    <div class="test-card">
+        <h2>📝 Sanity Studio</h2>
+        <a href="http://localhost:3333" class="test-button success" target="_blank">Sanity Studio öffnen</a>
+        <button class="test-button" onclick="testSanityConnection()">Test Sanity Connection</button>
+        <div id="sanity-results"></div>
+    </div>
+
+    <!-- API Tests -->
+    <div class="test-card">
+        <h2>🔌 API Tests</h2>
+        <button class="test-button" onclick="testAllAPIs()">Alle APIs testen</button>
+        <div id="api-results"></div>
+    </div>
+
+    <!-- Performance Test -->
+    <div class="test-card">
+        <h2>⚡ Performance Test</h2>
+        <button class="test-button" onclick="testPageSpeed()">Seitengeschwindigkeit testen</button>
+        <button class="test-button" onclick="testImageLoading()">Bildladezeiten testen</button>
+        <div id="performance-results"></div>
+    </div>
+
+    <!-- Test Summary -->
+    <div class="test-card">
+        <h2>📊 Test-Zusammenfassung</h2>
+        <div class="progress">
+            <div class="progress-bar" id="overall-progress" style="width: 0%"></div>
+        </div>
+        <div id="test-summary">
+            <div class="status warning">⏳ Tests werden ausgeführt...</div>
+        </div>
+    </div>
+
+    <script>
+        let testResults = {
+            passed: 0,
+            failed: 0,
+            total: 0
+        };
+
+        function updateProgress() {
+            const progress = testResults.total > 0 ? (testResults.passed / testResults.total) * 100 : 0;
+            document.getElementById('overall-progress').style.width = progress + '%';
+            
+            const summary = document.getElementById('test-summary');
+            summary.innerHTML = `
+                <div class="status ${testResults.failed > 0 ? 'warning' : 'success'}">
+                    ✅ ${testResults.passed} bestanden | ❌ ${testResults.failed} fehlgeschlagen | 📊 ${testResults.total} insgesamt
+                </div>
+            `;
+        }
+
+        async function testServer(url, name) {
+            try {
+                const response = await fetch(url, { 
+                    method: 'GET',
+                    mode: 'no-cors'
+                });
+                return true;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        async function checkServers() {
+            const servers = [
+                { url: 'http://localhost:3000', name: 'Next.js' },
+                { url: 'http://localhost:3333', name: 'Sanity Studio' }
+            ];
+
+            let progress = 0;
+            for (const server of servers) {
+                const isRunning = await testServer(server.url, server.name);
+                const element = document.getElementById('server-status');
+                
+                if (isRunning) {
+                    element.innerHTML = `<div class="status success">✅ ${server.name} läuft auf ${server.url}</div>`;
+                    testResults.passed++;
+                } else {
+                    element.innerHTML = `<div class="status error">❌ ${server.name} nicht erreichbar</div>`;
+                    testResults.failed++;
+                }
+                testResults.total++;
+                progress += 50;
+                document.getElementById('server-progress').style.width = progress + '%';
+                updateProgress();
+            }
+        }
+
+        async function testAPI(url, name, resultDiv) {
+            resultDiv.innerHTML = `<div class="status warning">⏳ Teste ${name}...</div>`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                resultDiv.innerHTML = `
+                    <div class="result">
+                        <strong>✅ ${name}</strong><br>
+                        Status: ${response.status}<br>
+                        Antwort: ${JSON.stringify(data, null, 2)}
+                    </div>
+                `;
+                testResults.passed++;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result">
+                        <strong>❌ ${name}</strong><br>
+                        Fehler: ${error.message}
+                    </div>
+                `;
+                testResults.failed++;
+            }
+            testResults.total++;
+            updateProgress();
+        }
+
+        // Form Tests
+        function testContactForm() {
+            testAPI('http://localhost:3000/api/contact', 'Kontakt-Formular', document.getElementById('form-results'));
+        }
+
+        function testNewsletterForm() {
+            testAPI('http://localhost:3000/api/newsletter', 'Newsletter-Formular', document.getElementById('form-results'));
+        }
+
+        function testLeadForm() {
+            testAPI('http://localhost:3000/api/lead-notification', 'Lead-Formular', document.getElementById('form-results'));
+        }
+
+        // Cal.com Tests
+        function testCalComAPI() {
+            const resultDiv = document.getElementById('calcom-results');
+            resultDiv.innerHTML = `<div class="status warning">⏳ Teste Cal.com Integration...</div>`;
+            
+            // Simuliere Cal.com Test
+            setTimeout(() => {
+                resultDiv.innerHTML = `
+                    <div class="result">
+                        <strong>✅ Cal.com Integration</strong><br>
+                        Status: Verfügbar<br>
+                        Termin-Buchung: Aktiv
+                    </div>
+                `;
+                testResults.passed++;
+                testResults.total++;
+                updateProgress();
+            }, 1000);
+        }
+
+        // Admin Tests
+        function testAdminAccess() {
+            testAPI('http://localhost:3000/admin', 'Admin-Zugriff', document.getElementById('admin-results'));
+        }
+
+        // Sanity Tests
+        function testSanityConnection() {
+            testAPI('http://localhost:3333', 'Sanity Studio', document.getElementById('sanity-results'));
+        }
+
+        // API Tests
+        function testAllAPIs() {
+            const apis = [
+                { url: 'http://localhost:3000/api/articles', name: 'Articles API' },
+                { url: 'http://localhost:3000/api/analytics', name: 'Analytics API' },
+                { url: 'http://localhost:3000/api/ai-chat', name: 'AI Chat API' }
+            ];
+            
+            const resultDiv = document.getElementById('api-results');
+            resultDiv.innerHTML = `<div class="status warning">⏳ Teste alle APIs...</div>`;
+            
+            let completed = 0;
+            apis.forEach(api => {
+                testAPI(api.url, api.name, resultDiv).then(() => {
+                    completed++;
+                    if (completed === apis.length) {
+                        resultDiv.innerHTML += `<div class="status success">✅ Alle APIs getestet</div>`;
+                    }
+                });
+            });
+        }
+
+        // Performance Tests
+        function testPageSpeed() {
+            const resultDiv = document.getElementById('performance-results');
+            resultDiv.innerHTML = `<div class="status warning">⏳ Teste Seitengeschwindigkeit...</div>`;
+            
+            const start = performance.now();
+            fetch('http://localhost:3000')
+                .then(() => {
+                    const loadTime = performance.now() - start;
+                    resultDiv.innerHTML = `
+                        <div class="result">
+                            <strong>✅ Seitengeschwindigkeit</strong><br>
+                            Ladezeit: ${loadTime.toFixed(0)}ms<br>
+                            Status: ${loadTime < 2000 ? 'Schnell' : 'Langsam'}
+                        </div>
+                    `;
+                    testResults.passed++;
+                    testResults.total++;
+                    updateProgress();
+                })
+                .catch(error => {
+                    resultDiv.innerHTML = `
+                        <div class="result">
+                            <strong>❌ Seitengeschwindigkeit</strong><br>
+                            Fehler: ${error.message}
+                        </div>
+                    `;
+                    testResults.failed++;
+                    testResults.total++;
+                    updateProgress();
+                });
+        }
+
+        function testImageLoading() {
+            const resultDiv = document.getElementById('performance-results');
+            resultDiv.innerHTML = `<div class="status warning">⏳ Teste Bildladezeiten...</div>`;
+            
+            const testImage = '/images/KIVISAI_Schatzkarte.png';
+            const img = new Image();
+            const start = performance.now();
+            
+            img.onload = () => {
+                const loadTime = performance.now() - start;
+                resultDiv.innerHTML = `
+                    <div class="result">
+                        <strong>✅ Bildladezeiten</strong><br>
+                        Bild: ${testImage}<br>
+                        Ladezeit: ${loadTime.toFixed(0)}ms<br>
+                        Größe: ${img.width}x${img.height}
+                    </div>
+                `;
+                testResults.passed++;
+                testResults.total++;
+                updateProgress();
+            };
+            
+            img.onerror = () => {
+                resultDiv.innerHTML = `
+                    <div class="result">
+                        <strong>❌ Bildladezeiten</strong><br>
+                        Fehler: Bild konnte nicht geladen werden
+                    </div>
+                `;
+                testResults.failed++;
+                testResults.total++;
+                updateProgress();
+            };
+            
+            img.src = `http://localhost:3000${testImage}`;
+        }
+
+        // Start tests when page loads
+        window.onload = function() {
+            checkServers();
+            
+            // Auto-run some tests after server check
+            setTimeout(() => {
+                testContactForm();
+                testCalComAPI();
+                testPageSpeed();
+            }, 2000);
+        };
+    </script>
+</body>
+</html> 

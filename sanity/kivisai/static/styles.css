@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Sanity Studio */
+@layer base {
+  /* Ensure proper font loading */
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Custom component styles */
+  .sanity-studio {
+    @apply bg-white text-gray-900;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes */
+  .kivisai-gradient {
+    @apply bg-gradient-to-br from-kivisai-deep-dark-blue to-kivisai-clear-turquoise;
+  }
+} 

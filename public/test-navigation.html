@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test - KIVISAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .test-button:hover { background: #0056b3; }
+        .result {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .error { border-left-color: #dc3545; }
+        .success { border-left-color: #28a745; }
+    </style>
+</head>
+<body>
+    <h1>🧪 KIVISAI Navigation Test</h1>
+    
+    <div class="result success">
+        ✅ <strong>Test-Server läuft!</strong> Diese Seite funktioniert ohne Next.js
+    </div>
+
+    <h2>🔗 Direkte Links (sollten funktionieren)</h2>
+    <a href="http://localhost:3000/leistungen" class="test-button" target="_blank">Leistungen</a>
+    <a href="http://localhost:3000/kontakt" class="test-button" target="_blank">Kontakt</a>
+    <a href="http://localhost:3000/ueber-kivisai" class="test-button" target="_blank">Über KIVISAI</a>
+    <a href="http://localhost:3000/loesungen" class="test-button" target="_blank">Lösungen</a>
+    <a href="http://localhost:3000/wissen" class="test-button" target="_blank">Wissen</a>
+    <a href="http://localhost:3000/evalkit" class="test-button" target="_blank">EVALKIT</a>
+
+    <h2>🔍 API-Tests</h2>
+    <button class="test-button" onclick="testPage('http://localhost:3000/leistungen')">Test Leistungen</button>
+    <button class="test-button" onclick="testPage('http://localhost:3000/kontakt')">Test Kontakt</button>
+    <button class="test-button" onclick="testPage('http://localhost:3000/ueber-kivisai')">Test Über KIVISAI</button>
+    
+    <div id="test-results"></div>
+
+    <h2>📋 Mögliche Probleme</h2>
+    <ul>
+        <li>JavaScript-Fehler in der Browser-Konsole</li>
+        <li>Client-side Routing funktioniert nicht</li>
+        <li>Hydration-Probleme</li>
+        <li>CSS/Styling-Probleme</li>
+    </ul>
+
+    <h2>🔧 Debugging-Schritte</h2>
+    <ol>
+        <li>Öffne die Browser-Konsole (F12)</li>
+        <li>Prüfe auf JavaScript-Fehler</li>
+        <li>Teste die direkten Links oben</li>
+        <li>Prüfe das Network-Tab für fehlgeschlagene Requests</li>
+    </ol>
+
+    <script>
+        async function testPage(url) {
+            const resultDiv = document.getElementById('test-results');
+            resultDiv.innerHTML = '<div class="result">⏳ Teste ' + url + '...</div>';
+            
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            <strong>✅ ${url}</strong><br>
+                            Status: ${response.status}<br>
+                            Content-Type: ${response.headers.get('content-type')}<br>
+                            <small>Seite ist erreichbar, aber möglicherweise JavaScript-Problem</small>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result error">
+                            <strong>❌ ${url}</strong><br>
+                            Status: ${response.status}<br>
+                            <small>Server-Fehler</small>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <strong>❌ ${url}</strong><br>
+                        Fehler: ${error.message}<br>
+                        <small>Netzwerk- oder CORS-Problem</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Automatische Tests beim Laden
+        window.onload = function() {
+            setTimeout(() => {
+                testPage('http://localhost:3000/leistungen');
+            }, 1000);
+        };
+    </script>
+</body>
+</html> 
