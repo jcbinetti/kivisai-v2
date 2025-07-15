@@ -107,7 +107,6 @@ try {
         npm run health-check
         
         Write-Host "🎉 Deployment completed successfully!" -ForegroundColor Green
-        
     } else {
         Write-Host "❌ Deployment failed" -ForegroundColor Red
         exit 1

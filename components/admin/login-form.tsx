@@ -64,7 +64,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@kivisai.com"
+                placeholder="Ihre E-Mail-Adresse"
                 className="pl-10"
                 required
                 disabled={isLoading}
@@ -113,14 +113,6 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
             {isLoading ? 'Anmeldung läuft...' : 'Anmelden'}
           </Button>
         </form>
-
-        <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-          <p className="text-sm text-gray-600 text-center">
-            <strong>Demo-Zugang:</strong><br />
-            E-Mail: admin@kivisai.com<br />
-            Passwort: admin123
-          </p>
-        </div>
       </CardContent>
     </Card>
   );

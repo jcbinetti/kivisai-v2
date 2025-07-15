@@ -34,27 +34,34 @@ export const auth = {
     return null;
   },
 
-  // Login function
-  login: (email: string, password: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      // Simple admin credentials (in production, use proper authentication)
-      if (email === 'admin@kivisai.com' && password === 'admin123') {
-        const user: User = {
-          id: '1',
-          name: 'Admin',
-          email: email,
-          role: 'admin'
-        };
+  // Login function - now uses secure API route
+  login: async (email: string, password: string): Promise<boolean> => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        const user: User = data.user;
         
         if (typeof window !== 'undefined') {
           localStorage.setItem('kivisai-auth', JSON.stringify(user));
         }
         currentUser = user;
-        resolve(true);
+        return true;
       } else {
-        resolve(false);
+        return false;
       }
-    });
+    } catch (error) {
+      console.error('Login error:', error);
+      return false;
+    }
   },
 
   // Logout function
