@@ -78,7 +78,7 @@ export default function HandwerkerLiAssistentPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/4_KIVISAI-NAVI/KIVI_SHARE.png"
+                src="/images-optimized/4_KIVISAI-NAVI/KIVI_SHARE.webp"
                 alt="KI-Assistent in der Werkstatt - Praktische Anwendung"
                 width={600}
                 height={400}
@@ -211,11 +211,11 @@ export default function HandwerkerLiAssistentPage() {
                 <div className="mb-6">
                   <div className="relative w-full max-w-3xl mx-auto">
                     <Image
-                      src="/images/2_KIVI_4_EBENE/KIVI_Organisation.png"
-                      alt="Moderne Schreinerwerkstatt mit digitalen Tools - Potenzielle Kunden identifizieren, Kontaktaufnahme automatisieren, Interaktionen verfolgen"
-                      width={800}
-                      height={600}
-                      className="w-full h-auto rounded-lg shadow-lg"
+                      src="/images-optimized/2_KIVI_4_EBENE/KIVI_Organisation.webp"
+                      alt="KIVI Organisation"
+                      width={200}
+                      height={200}
+                      className="w-full h-auto"
                     />
                   </div>
                 </div>

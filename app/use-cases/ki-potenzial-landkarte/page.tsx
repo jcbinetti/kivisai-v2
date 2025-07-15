@@ -32,7 +32,7 @@ export default function KIPotenzialLandkartePage() {
     mensch: {
       title: "Mensch",
       icon: User,
-      image: "/images/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.png",
+      image: "/images-optimized/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.webp",
       color: "from-blue-500 to-purple-600",
       iconColor: "bg-blue-500",
       tabColor: "blue-500",
@@ -52,7 +52,7 @@ export default function KIPotenzialLandkartePage() {
     team: {
       title: "Projekt-Team",
       icon: Users,
-      image: "/images/2_KIVI_4_EBENE/KIVI_Team_Flat.png",
+      image: "/images-optimized/2_KIVI_4_EBENE/KIVI_Team_Flat.webp",
       color: "from-kivisai-clear-turquoise to-teal-600",
       iconColor: "bg-kivisai-clear-turquoise",
       tabColor: "kivisai-clear-turquoise",
@@ -78,7 +78,7 @@ export default function KIPotenzialLandkartePage() {
     organisation: {
       title: "Organisation",
       icon: Building2,
-      image: "/images/2_KIVI_4_EBENE/KIVI_Organisation.png",
+      image: "/images-optimized/2_KIVI_4_EBENE/KIVI_Organisation.webp",
       color: "from-orange-500 to-red-600",
       iconColor: "bg-orange-500",
       tabColor: "orange-500",
@@ -103,7 +103,7 @@ export default function KIPotenzialLandkartePage() {
     netzwerk: {
       title: "Netzwerk / Ökosystem",
       icon: Recycle,
-      image: "/images/2_KIVI_4_EBENE/KIVI_oekosystem.png",
+      image: "/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp",
       color: "from-green-500 to-emerald-600",
       iconColor: "bg-green-500",
       tabColor: "green-500",
@@ -163,7 +163,7 @@ export default function KIPotenzialLandkartePage() {
             <h2 className="text-2xl md:text-3xl font-bold text-kivisai-deep-dark-blue mb-4 text-center">KI-Potenzial-Landkarte: Orientierung für Ihre Transformation</h2>
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/6_KIVI-SZENEN/KIVI_Ratlos_quer.png"
+                src="/images-optimized/6_KIVI-SZENEN/KIVI_Ratlos_quer.webp"
                 alt="KI-Potenzial Landkarte: Orientierung für Ihre Transformation"
                 fill
                 className="object-cover"
@@ -183,15 +183,13 @@ export default function KIPotenzialLandkartePage() {
           <div className="max-w-4xl mx-auto">
             <div className="prose max-w-none text-kivisai-moss-green leading-relaxed mb-8">
               <p className="text-lg">
-                Ob Überlastung durch Routineaufgaben, Skepsis gegenüber den tatsächlichen Möglichkeiten von KI oder
-                Sorgen um die Datensicherheit – die Hürden bei der KI-Transformation sind vielfältig und real.
+                Die KI-Potenzial-Landkarte von KIVISAI bietet Ihnen eine klare Orientierung im Dschungel der Möglichkeiten: Sie zeigt, auf welcher Wirkungsebene – Mensch, Team, Organisation oder Ökosystem – Ihre größten Hebel für KI-Transformation liegen.
               </p>
               <p className="text-lg">
-                Die Komplexität kann überwältigend wirken, doch für jede dieser Herausforderungen gibt es einen
-                passenden Lösungsansatz. Die folgende Übersicht dient Ihnen als Kompass: Sie ordnet die konkreten
-                Schmerzpunkte den vier zentralen Wirkungsebenen zu und zeigt Ihnen, welche KI-Konzepte und -Ansätze
-                gezielt Abhilfe schaffen. Finden Sie hier Ihren Ansatzpunkt für eine wirksame und zukunftssichere
-                Transformation.
+                Jede Ebene bringt eigene Herausforderungen, Dimensionen und Anwendungsbereiche mit sich. Entdecken Sie, wie Sie gezielt die passenden Lösungen für Ihre Situation finden – von der individuellen Kompetenzentwicklung über die Team-Kollaboration bis hin zur strategischen Organisationsentwicklung und der Vernetzung ganzer Ökosysteme.
+              </p>
+              <p className="text-lg">
+                Nutzen Sie die Landkarte als Kompass: Starten Sie dort, wo der Handlungsdruck am größten ist, und erfahren Sie, welche konkreten KI-Ansätze und -Tools Sie auf dem Weg zur nachhaltigen Transformation unterstützen können.
               </p>
             </div>
           </div>
@@ -211,7 +209,7 @@ export default function KIPotenzialLandkartePage() {
                 <h2 className="text-3xl font-bold text-kivisai-deep-dark-blue">Wegweiser</h2>
               </div>
               <p className="text-kivisai-moss-green max-w-2xl mx-auto">
-                Entdecke deine KI-Fitness aus der Sicht von Mensch, Team, Organisation oder Ökosystem. Unser strukturierter Test zeigt dir, wo du stehst und wie du dich weiterentwickeln kannst.
+                Die KI-Potenzial-Landkarte zeigt Ihnen die vier Wirkungsebenen der KI-Transformation: Mensch, Team, Organisation und Ökosystem. Jede Ebene hat spezifische Herausforderungen, eigene Dimensionen der KI-Anwendung und relevante KI-Bereiche. Entdecken Sie, auf welcher Ebene Ihre größten Potenziale liegen und welche konkreten KI-Lösungen für Sie relevant sind.
               </p>
             </div>
 

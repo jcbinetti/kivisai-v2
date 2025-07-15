@@ -37,12 +37,11 @@ export default function KIPotenzialanalysePage() {
           <div className="md:w-1/2 w-full flex justify-center">
             <div className="bg-gradient-to-br from-kivisai-clear-turquoise/10 to-kivisai-vibrant-turquoise/10 rounded-2xl p-8 border border-kivisai-clear-turquoise/20">
               <Image 
-                src="/images/6_KIVI-SZENEN/KIVI-Coaching.png" 
-                alt="KIVISAI Coaching" 
+                src="/images-optimized/6_KIVI-SZENEN/KIVI-Coaching.webp" 
+                alt="KIVI Coaching" 
                 width={400} 
-                height={200} 
-                className="rounded-xl object-cover w-full" 
-                priority
+                height={300}
+                className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -103,7 +102,7 @@ export default function KIPotenzialanalysePage() {
           {/* KIVISAI Signet zentriert */}
           <div className="flex justify-center mt-12">
             <a href="/ueber-kivisai" title="Zur Bedeutung & Vision von KIVISAI">
-              <img src="/images/KIVISAI_signet_tr.png" alt="KIVISAI Logo" className="w-32 h-auto hover:scale-105 transition-transform duration-200" />
+              <img src="/images-optimized/KIVISAI_signet_tr.webp" alt="KIVISAI Logo" className="w-32 h-auto hover:scale-105 transition-transform duration-200" />
             </a>
           </div>
         </div>
@@ -120,7 +119,7 @@ export default function KIPotenzialanalysePage() {
             {/* Zukunftsbilder */}
             <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
               <div className="w-full h-40 mb-4 flex items-center justify-center">
-                <Image src="/images/KIVI-PA-VIS-Steuerbüro.webp" alt="Zukunftsbilder" width={220} height={160} className="rounded cursor-pointer hover:scale-105 transition-transform object-cover h-full w-full" />
+                <Image src="/images-optimized/5_Kivisai_Bilder/KIVI-PA-VIS-Steuerbüro.webp" alt="Zukunftsbilder" width={220} height={160} className="rounded cursor-pointer hover:scale-105 transition-transform object-cover h-full w-full" />
               </div>
               <h3 className="font-bold text-lg mb-2 text-kivisai-clear-turquoise">Zukunftsbilder</h3>
               <p className="text-kivisai-dark-blue text-center">Visuelle Szenarien verdeutlichen Chancen und Risiken und schaffen eine gemeinsame Zielvorstellung.</p>
@@ -128,7 +127,7 @@ export default function KIPotenzialanalysePage() {
             {/* Brainwriting 6-3-5 */}
             <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
               <div className="w-full h-40 mb-4 flex items-center justify-center">
-                <Image src="/images/6_KIVI-SZENEN/kivi_brainwriting.png" alt="Brainwriting 6-3-5" width={220} height={160} className="rounded cursor-pointer hover:scale-105 transition-transform object-cover h-full w-full" />
+                <Image src="/images-optimized/6_KIVI-SZENEN/kivi_brainwriting.webp" alt="Brainwriting 6-3-5" width={220} height={160} className="rounded cursor-pointer hover:scale-105 transition-transform object-cover h-full w-full" />
               </div>
               <h3 className="font-bold text-lg mb-2 text-kivisai-clear-turquoise">Brainwriting 6-3-5</h3>
               <p className="text-kivisai-dark-blue text-center">Strukturierter Ideation-Sprint: 6 Personen, 3 Ideen, 5 Minuten pro Runde – liefert in kurzer Zeit über 100 frische Use-Cases.</p>
@@ -136,7 +135,7 @@ export default function KIPotenzialanalysePage() {
             {/* Nutzen-Aufwand-Canvas */}
             <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
               <div className="w-full h-40 mb-4 flex items-center justify-center">
-                <Image src="/images/6_KIVI-SZENEN/KIVI_Erfolg.png" alt="Nutzen-Aufwand-Canvas" width={220} height={160} className="rounded cursor-pointer hover:scale-105 transition-transform object-cover h-full w-full" />
+                <Image src="/images-optimized/6_KIVI-SZENEN/KIVI_Erfolg.webp" alt="Nutzen-Aufwand-Canvas" width={220} height={160} className="rounded cursor-pointer hover:scale-105 transition-transform object-cover h-full w-full" />
               </div>
               <h3 className="font-bold text-lg mb-2 text-kivisai-clear-turquoise">Nutzen-Aufwand-Canvas</h3>
               <p className="text-kivisai-dark-blue text-center">Kollektive Bewertung von Wirkung und Aufwand bringt schnell Klarheit über die Top-Prioritäten.</p>

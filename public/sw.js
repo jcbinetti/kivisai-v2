@@ -9,8 +9,8 @@ const DYNAMIC_CACHE = 'kivisai-dynamic-v1.0.0'
 const CRITICAL_ASSETS = [
   '/',
   '/offline',
-  '/images/KIVISAI_logo_TR.png',
-  '/images/KIVISAI_signet_tr.png',
+  '/images-optimized/KIVISAI_logo_TR.webp',
+  '/images-optimized/KIVISAI_signet_tr.webp',
   '/styles/hero-background.css',
 ]
 
@@ -24,8 +24,8 @@ const STATIC_ASSETS = [
   '/evalkit',
   '/kontakt',
   '/termin',
-  '/images/KIVISAI-NETWORK_Data_analyst.png',
-  '/images/KIVISAI_Schatzkarte.png',
+  '/images-optimized/KIVISAI-NETWORK_Data_analyst.webp',
+  '/images-optimized/KIVISAI_Schatzkarte.webp',
   '/fonts/inter-var.woff2',
 ]
 

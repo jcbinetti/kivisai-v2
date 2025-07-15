@@ -19,10 +19,15 @@ export default function MethodePage() {
           <div className="space-y-16">
             {/* Phase 1: THINK */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="bg-kivisai-light-cool-gray p-8 rounded-lg shadow-md flex items-center justify-center h-64">
-                  <Lightbulb className="w-24 h-24 text-kivisai-deep-dark-blue" />
-                  <p className="sr-only">Illustration einer Glühbirne, die Ideen symbolisiert.</p>
+              <div className="order-2 lg:order-1 flex justify-center">
+                <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-kivisai-deep-dark-blue">
+                  <Image 
+                    src="/images-optimized/4_KIVISAI-NAVI/KIVI_THINK.webp" 
+                    alt="KIVISAI THINK Prinzip" 
+                    width={80} 
+                    height={80} 
+                    className="w-auto h-auto max-w-full max-h-full"
+                  />
                 </div>
               </div>
               <div className="order-1 lg:order-2">
@@ -40,10 +45,15 @@ export default function MethodePage() {
 
             {/* Phase 2: ENABLE */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1">
-                <div className="bg-kivisai-light-cool-gray p-8 rounded-lg shadow-md flex items-center justify-center h-64">
-                  <Rocket className="w-24 h-24 text-kivisai-deep-dark-blue" />
-                  <p className="sr-only">Illustration einer Rakete, die Umsetzung symbolisiert.</p>
+              <div className="order-1 flex justify-center">
+                <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-kivisai-clear-turquoise">
+                  <Image 
+                    src="/images-optimized/4_KIVISAI-NAVI/KIVI_ENABLE.webp" 
+                    alt="KIVISAI ENABLE Prinzip" 
+                    width={80} 
+                    height={80} 
+                    className="w-auto h-auto max-w-full max-h-full"
+                  />
                 </div>
               </div>
               <div className="order-2">
@@ -60,10 +70,15 @@ export default function MethodePage() {
 
             {/* Phase 3: SHARE */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="bg-kivisai-light-cool-gray p-8 rounded-lg shadow-md flex items-center justify-center h-64">
-                  <Share2 className="w-24 h-24 text-kivisai-deep-dark-blue" />
-                  <p className="sr-only">Illustration von zwei Pfeilen, die Teilen symbolisieren.</p>
+              <div className="order-2 lg:order-1 flex justify-center">
+                <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-orange-500">
+                  <Image 
+                    src="/images-optimized/4_KIVISAI-NAVI/KIVI_SHARE.webp" 
+                    alt="KIVISAI SHARE Prinzip" 
+                    width={80} 
+                    height={80} 
+                    className="w-auto h-auto max-w-full max-h-full"
+                  />
                 </div>
               </div>
               <div className="order-1 lg:order-2">
@@ -80,10 +95,15 @@ export default function MethodePage() {
 
             {/* Phase 4: GROW */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-1">
-                <div className="bg-kivisai-light-cool-gray p-8 rounded-lg shadow-md flex items-center justify-center h-64">
-                  <Leaf className="w-24 h-24 text-kivisai-deep-dark-blue" />
-                  <p className="sr-only">Illustration eines Blattes, das Wachstum symbolisiert.</p>
+              <div className="order-1 flex justify-center">
+                <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-kivisai-moss-green">
+                  <Image 
+                    src="/images-optimized/4_KIVISAI-NAVI/KIVI_GROW.webp" 
+                    alt="KIVISAI GROW Prinzip" 
+                    width={80} 
+                    height={80} 
+                    className="w-auto h-auto max-w-full max-h-full"
+                  />
                 </div>
               </div>
               <div className="order-2">
@@ -104,6 +124,26 @@ export default function MethodePage() {
             die Risiken minimiert und messbare Ergebnisse liefert.
           </p>
 
+          {/* KIVISAI Loop Visual & Text */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="order-2 lg:order-1 flex justify-center">
+              <div className="w-full">
+                <Image 
+                  src="/images-optimized/4_KIVISAI-NAVI/KIVI_4-phasen.webp"
+                  alt="KIVISAI Loop Visual: THINK - ENABLE - SHARE - GROW"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto rounded-xl shadow-md"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <h3 className="font-semibold text-lg mb-2">Der KIVISAI-Loop: THINK – ENABLE – SHARE – GROW</h3>
+              <p className="mb-2">KIVISAI verbindet Strategie, Technologie und Kultur zu einem lebendigen Transformationsansatz – menschlich, systemisch und wirkungsvoll. Die vier Phasen sind zyklisch, anschlussfähig und individuell adaptierbar.</p>
+            </div>
+          </div>
+
           {/* Mensch-KI-Synergie */}
           <div className="bg-kivisai-light-cool-gray p-8 rounded-lg shadow-md text-center mb-16">
             <h2 className="text-3xl font-bold mb-6 text-kivisai-deep-dark-blue">
@@ -117,11 +157,11 @@ export default function MethodePage() {
             </p>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="Mensch-KI-Kollaboration"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-md"
+                src="/images-optimized/6_KIVI-SZENEN/KIVI-Coaching.webp"
+                alt="KIVI Coaching"
+                width={400}
+                height={300}
+                className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
           </div>

@@ -88,22 +88,22 @@ export default function UeberKivisaiPage() {
             <h3 className="text-2xl font-bold text-kivisai-deep-dark-blue mb-4 text-center">Der KIVISAI-Loop (T E S G)</h3>
             <div className="grid md:grid-cols-4 gap-4 mb-6">
               <div className="flex flex-col items-center bg-white rounded-lg shadow p-4 border-t-4 border-kivisai-clear-turquoise animate-fade-in-up hover:scale-105 hover:shadow-lg transition-all duration-300 ease-out" style={{ animationDelay: '0ms' }}>
-                <Image src="/images/4_KIVISAI-NAVI/KIVI_THINK.png" alt="Think Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-pulse" />
+                <Image src="/images-optimized/4_KIVISAI-NAVI/KIVI_THINK.webp" alt="Think Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-pulse" />
                 <div className="font-bold">THINK</div>
                 <div className="text-sm text-center">Vorausschauend analysieren & strategische KI-Roadmap entwickeln.</div>
               </div>
               <div className="flex flex-col items-center bg-white rounded-lg shadow p-4 border-t-4 border-kivisai-moss-green animate-fade-in-up hover:scale-105 hover:shadow-lg transition-all duration-300 ease-out" style={{ animationDelay: '200ms' }}>
-                <Image src="/images/4_KIVISAI-NAVI/KIVI_ENABLE.png" alt="Enable Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-pulse" />
+                <Image src="/images-optimized/4_KIVISAI-NAVI/KIVI_ENABLE.webp" alt="Enable Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-pulse" />
                 <div className="font-bold">ENABLE</div>
-                <div className="text-sm text-center">Teams befähigen, Prototypen bauen, Agilität leben.</div>
+                <div className="text-sm text-center">Menschen, Teams & Organisationen für KI befähigen.</div>
               </div>
               <div className="flex flex-col items-center bg-white rounded-lg shadow p-4 border-t-4 border-yellow-400 animate-fade-in-up hover:scale-105 hover:shadow-lg transition-all duration-300 ease-out" style={{ animationDelay: '400ms' }}>
-                <Image src="/images/4_KIVISAI-NAVI/KIVI_SHARE.png" alt="Share Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-bounce" />
+                <Image src="/images-optimized/4_KIVISAI-NAVI/KIVI_SHARE.webp" alt="Share Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-bounce" />
                 <div className="font-bold">SHARE</div>
-                <div className="text-sm text-center">Wissen verbreiten, Akzeptanz sichern, Wirkung skalieren.</div>
+                <div className="text-sm text-center">Erkenntnisse teilen & Wissen multiplizieren.</div>
               </div>
               <div className="flex flex-col items-center bg-white rounded-lg shadow p-4 border-t-4 border-kivisai-deep-dark-blue animate-fade-in-up hover:scale-105 hover:shadow-lg transition-all duration-300 ease-out" style={{ animationDelay: '600ms' }}>
-                <Image src="/images/4_KIVISAI-NAVI/KIVI_GROW.png" alt="Grow Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-spin-slow" />
+                <Image src="/images-optimized/4_KIVISAI-NAVI/KIVI_GROW.webp" alt="Grow Icon" width={56} height={56} className="mb-2 w-14 h-14 object-contain animate-spin-slow" />
                 <div className="font-bold">GROW</div>
                 <div className="text-sm text-center">Erfolge verankern, Systeme regenerativ weiterentwickeln.</div>
               </div>
@@ -140,7 +140,7 @@ export default function UeberKivisaiPage() {
                 <p className="text-kivisai-moss-green leading-relaxed">
                   Entdecken Sie die Bedeutung unseres Namens, unsere Werte und die Vision für eine regenerative KI-Transformation.
                 </p>
-                <ul className="space-y-2 text-sm text-kivisai-moss-green">
+                <ul className="space-y-2 text-sm text-kivisai-moss-green mb-4">
                   <li>• Was bedeutet KIVISAI?</li>
                   <li>• Unsere Mission & Vision</li>
                   <li>• Unsere Werte</li>
@@ -168,7 +168,7 @@ export default function UeberKivisaiPage() {
                 <p className="text-kivisai-moss-green leading-relaxed">
                   Unsere Grundsätze und Arbeitsweise für eine erfolgreiche KI-Transformation.
                 </p>
-                <ul className="space-y-2 text-sm text-kivisai-moss-green">
+                <ul className="space-y-2 text-sm text-kivisai-moss-green mb-4">
                   <li>• Mensch-zentrierte KI</li>
                   <li>• Nachhaltige Transformation</li>
                   <li>• Kollaborative Entwicklung</li>
@@ -197,7 +197,7 @@ export default function UeberKivisaiPage() {
                 <p className="text-kivisai-moss-green leading-relaxed">
                   Der KIVISAI-Loop: Unser bewährter Transformationsansatz für nachhaltige KI-Integration.
                 </p>
-                <ul className="space-y-2 text-sm text-kivisai-moss-green">
+                <ul className="space-y-2 text-sm text-kivisai-moss-green mb-4">
                   <li>• THINK - Strategische Analyse</li>
                   <li>• ENABLE - Teams befähigen</li>
                   <li>• SHARE - Wissen teilen</li>
@@ -226,7 +226,7 @@ export default function UeberKivisaiPage() {
                 <p className="text-kivisai-moss-green leading-relaxed">
                   Die Menschen hinter KIVISAI und unser Partnernetzwerk für Ihre KI-Transformation.
                 </p>
-                <ul className="space-y-2 text-sm text-kivisai-moss-green">
+                <ul className="space-y-2 text-sm text-kivisai-moss-green mb-4">
                   <li>• Unser Team</li>
                   <li>• Partner & Netzwerk</li>
                   <li>• Expertise & Erfahrung</li>

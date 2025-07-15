@@ -26,29 +26,29 @@ export function EvalkitTeaserSection({
     { 
       icon: User, 
       name: "Mensch", 
-      description: "Individuelle Selbsteinschätzung",
-      imageSrc: "/images/4_KIVISAI-NAVI/KIVI_Mensch.png",
+      description: "Individuelle KI-Potenziale und persönliche Entwicklung",
+      imageSrc: "/images-optimized/4_KIVISAI-NAVI/KIVI_Mensch.webp",
       imageAlt: "Mensch Perspektive - Individuelle Selbsteinschätzung"
     },
     { 
       icon: Users, 
       name: "Team", 
-      description: "Projekt-Team Ebene",
-      imageSrc: "/images/4_KIVISAI-NAVI/KIVI_Team.png",
+      description: "Teamdynamik und kollektive Intelligenz",
+      imageSrc: "/images-optimized/4_KIVISAI-NAVI/KIVI_Team.webp",
       imageAlt: "Team Perspektive - Projekt-Team Ebene"
     },
     { 
       icon: Building, 
       name: "Organisation", 
-      description: "Unternehmensebene",
-      imageSrc: "/images/4_KIVISAI-NAVI/KIVI_Orga.png",
+      description: "Strukturelle KI-Integration und Prozessoptimierung",
+      imageSrc: "/images-optimized/4_KIVISAI-NAVI/KIVI_Orga.webp",
       imageAlt: "Organisation Perspektive - Unternehmensebene"
     },
     { 
       icon: Network, 
       name: "Ökosystem", 
-      description: "Branchen- & Netzwerkebene",
-      imageSrc: "/images/4_KIVISAI-NAVI/KIVI_Ökosystem.PNG",
+      description: "Netzwerk-Intelligenz und systemische Transformation",
+      imageSrc: "/images-optimized/4_KIVISAI-NAVI/KIVI_Ökosystem.webp",
       imageAlt: "Ökosystem Perspektive - Branchen- & Netzwerkebene"
     }
   ]

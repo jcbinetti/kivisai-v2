@@ -403,12 +403,11 @@ export default function StrategieCoachingPage() {
           <Link href="/ueber-kivisai" className="inline-block group mt-6">
             <div className="flex flex-col items-center justify-center">
               <Image
-                src="/images/3_LABEL-LOGO/KIVISAI_signet_tr.png"
+                src="/images-optimized/3_LABEL-LOGO/KIVISAI_signet_tr.webp"
                 alt="KIVISAI Signet"
-                width={80}
-                height={80}
-                className="rounded-full shadow-lg group-hover:scale-110 transition-transform duration-300"
-                priority
+                width={200}
+                height={200}
+                className="w-full h-auto"
               />
               <span className="mt-2 text-kivisai-moss-green text-sm group-hover:underline">Mehr über uns erfahren</span>
             </div>

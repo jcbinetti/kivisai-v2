@@ -11,16 +11,47 @@ const nextConfig = {
         },
       },
     },
-    // Optimize package imports
+    // Optimize package imports for Vercel 2
     optimizePackageImports: [
       '@radix-ui/react-icons',
       'lucide-react',
       'date-fns',
       'lodash-es',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-tabs',
+      '@radix-ui/react-tooltip',
+      '@radix-ui/react-toast',
+      '@radix-ui/react-popover',
+      '@radix-ui/react-select',
+      '@radix-ui/react-switch',
+      '@radix-ui/react-slider',
+      '@radix-ui/react-progress',
+      '@radix-ui/react-radio-group',
+      '@radix-ui/react-checkbox',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-aspect-ratio',
+      '@radix-ui/react-collapsible',
+      '@radix-ui/react-context-menu',
+      '@radix-ui/react-hover-card',
+      '@radix-ui/react-label',
+      '@radix-ui/react-menubar',
+      '@radix-ui/react-navigation-menu',
+      '@radix-ui/react-scroll-area',
+      '@radix-ui/react-separator',
+      '@radix-ui/react-slot',
+      '@radix-ui/react-toggle',
+      '@radix-ui/react-toggle-group',
     ],
-    // Enable modern features
-    serverComponentsExternalPackages: ['sharp'],
+    // Enable more aggressive optimizations for Vercel 2
+    optimizeCss: true,
+    // Enable Vercel 2 specific optimizations
+    // Optimize bundle splitting
   },
+
+  // Server external packages for Vercel 2
+  serverExternalPackages: ['sharp', '@sanity/client'],
 
   // Build Configuration
   typescript: {
@@ -52,21 +83,30 @@ const nextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 31536000, // 1 year
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Enable more aggressive image optimization
+    unoptimized: false,
+    loader: 'default',
   },
 
-  // Caching Strategy
+  // Caching Strategy - More aggressive
   onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 2,
+    maxInactiveAge: 60 * 1000, // 1 minute
+    pagesBufferLength: 5,
   },
 
-  // Output Configuration
+  // Output Configuration for Vercel 2
   output: 'standalone',
+  
+  // Vercel 2 specific optimizations
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   
   // Headers für bessere Performance und Sicherheit
   async headers() {
@@ -114,7 +154,7 @@ const nextConfig = {
         ]
       },
       {
-        source: '/images/(.*)',
+        source: '/images-optimized/(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -211,6 +251,10 @@ const nextConfig = {
           }
         },
       }
+      
+      // Enable tree shaking
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
     }
 
     // Optimize images
@@ -245,22 +289,8 @@ const nextConfig = {
     return config;
   },
 
-  // PWA Configuration
-  pwa: {
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-    disable: process.env.NODE_ENV === 'development'
-  },
-
   // Trailing Slash für bessere SEO
   trailingSlash: false,
-
-  // Base Path (falls benötigt)
-  // basePath: '',
-
-  // Asset Prefix (falls benötigt)
-  // assetPrefix: '',
 
   // Environment Variables
   env: {

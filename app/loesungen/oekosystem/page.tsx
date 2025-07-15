@@ -59,11 +59,11 @@ export default function OekosystemKIPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/2_KIVI_4_EBENE/KIVI_oekosystem.png"
-                alt="Vernetzte KI-Systeme schaffen gesellschaftliche Synergien: Diverse Gruppe arbeitet an nachhaltigen, globalen KI-Lösungen mit Fokus auf Umweltverantwortung"
-                fill
-                className="object-cover"
-                priority
+                src="/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp"
+                alt="KIVI Ökosystem"
+                width={200}
+                height={200}
+                className="w-full h-auto"
               />
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
                 <span className="text-kivisai-deep-dark-blue font-bold text-sm">

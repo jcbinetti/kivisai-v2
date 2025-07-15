@@ -13,20 +13,32 @@ const Footer: React.FC = () => {
 
   const certificates = [
     {
-      src: "/images/FF-Siegel_FF_convis_RGB.png",
-      alt: "Fairness First Siegel / Unternehmer Award",
+      src: "/images-optimized/FF-Siegel_FF_convis_RGB.webp",
+      alt: "FF-Siegel FF convis",
+      href: "https://www.convis.de/",
+      width: 120,
+      height: 60
     },
     {
-      src: "/images/Badges_Autorisierter_INQA-Coach_2025-2026.png",
+      src: "/images-optimized/Badges_Autorisierter_INQA-Coach_2025-2026.webp",
       alt: "Autorisierter INQA-Coach 2025-2026",
+      href: "https://www.inqa.de/",
+      width: 120,
+      height: 60
     },
     {
-      src: "/images/FF-Siegel_SGS.png",
-      alt: "SGS System Certification ISO 9001",
+      src: "/images-optimized/FF-Siegel_SGS.webp",
+      alt: "FF-Siegel SGS",
+      href: "https://www.sgs.com/",
+      width: 120,
+      height: 60
     },
     {
-      src: "/images/FF-Siegel_UZ_convis_RGB.png",
-      alt: "Swiss Accreditation Service SAS",
+      src: "/images-optimized/FF-Siegel_UZ_convis_RGB.webp",
+      alt: "FF-Siegel UZ convis",
+      href: "https://www.convis.de/",
+      width: 120,
+      height: 60
     },
   ]
 
@@ -40,7 +52,7 @@ const Footer: React.FC = () => {
           {/* Logo und Beschreibung */}
           <div className="lg:col-span-1 flex flex-col items-start justify-start pt-0">
             <SafeImage
-              src="/images-optimized/3_LABEL-LOGO/KIVISAI_logo_alone_tr.webp"
+              src="/images-optimized/KIVISAI_logo_TR.webp"
               alt="KIVISAI Logo"
               width={170}
               height={68}

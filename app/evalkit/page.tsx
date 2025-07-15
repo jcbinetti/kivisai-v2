@@ -64,7 +64,7 @@ export default function EvalKitPage() {
         subtitle="Bin ich bereit für die KI-Zukunft?"
         description="Mit dem EVALKIT starten Sie Ihre persönliche Reise in die Welt der Künstlichen Intelligenz. Ob als Einzelperson, Team oder Organisation – diese Selbsteinschätzung hilft Ihnen, den eigenen Standort zu bestimmen, Chancen zu erkennen und nächste Schritte zu planen. Kostenlos • Anonym • Sofortige Ergebnisse."
         image={{
-          src: "/images/KIVISAI_signet_tr.png",
+          src: "/images-optimized/KIVISAI_signet_tr.webp",
           alt: "KIVISAI Signet",
           position: "right"
         }}
@@ -74,7 +74,7 @@ export default function EvalKitPage() {
           <div className="max-w-5xl mx-auto">
             <div className="mb-12">
               <Image
-                src="/images/4_KIVISAI-NAVI/KIVI_Roles_all.png"
+                src="/images-optimized/4_KIVISAI-NAVI/KIVI_Roles_all.webp"
                 alt="EVALKIT Rollen-Übersicht: MENSCH, TEAM, ORGANISATION und ÖKOSYSTEM"
                 width={800}
                 height={500}

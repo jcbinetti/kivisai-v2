@@ -57,7 +57,7 @@ export default function LoesungenPage() {
               <Card className="hover:shadow-lg transition-shadow overflow-hidden">
                 <div className="h-48 relative overflow-hidden">
                   <Image
-                    src="/images/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.png"
+                    src="/images-optimized/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.webp"
                     alt="Persönlicher KI-Assistent für Menschen"
                     width={400}
                     height={200}
@@ -107,7 +107,7 @@ export default function LoesungenPage() {
               <Card className="hover:shadow-lg transition-shadow overflow-hidden">
                 <div className="h-48 relative overflow-hidden">
                   <Image
-                    src="/images/2_KIVI_4_EBENE/KIVI_Team_Flat.png"
+                    src="/images-optimized/2_KIVI_4_EBENE/KIVI_Team_Flat.webp"
                     alt="Kollaborative KI-Tools für Teams"
                     width={400}
                     height={200}
@@ -157,7 +157,7 @@ export default function LoesungenPage() {
               <Card className="hover:shadow-lg transition-shadow overflow-hidden">
                 <div className="h-48 relative overflow-hidden">
                   <Image
-                    src="/images/2_KIVI_4_EBENE/KIVI_Organisation.png"
+                    src="/images-optimized/2_KIVI_4_EBENE/KIVI_Organisation.webp"
                     alt="Intelligente Automatisierung für Organisationen"
                     width={400}
                     height={200}
@@ -207,7 +207,7 @@ export default function LoesungenPage() {
               <Card className="hover:shadow-lg transition-shadow overflow-hidden">
                 <div className="h-48 relative overflow-hidden">
                   <Image
-                    src="/images/2_KIVI_4_EBENE/KIVI_oekosystem.png"
+                    src="/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp"
                     alt="Vernetzte KI-Systeme für Ökosysteme"
                     width={400}
                     height={200}
@@ -268,7 +268,7 @@ export default function LoesungenPage() {
           <Link href="/ueber-kivisai" className="inline-block group mt-6">
             <div className="flex flex-col items-center justify-center">
               <Image
-                src="/images/3_LABEL-LOGO/KIVISAI_signet_tr.png"
+                src="/images-optimized/KIVISAI_signet_tr.webp"
                 alt="KIVISAI Signet"
                 width={80}
                 height={80}

@@ -11,11 +11,11 @@ interface RoleSelectionProps {
   onRoleSelect: (roleId: string) => void
 }
 
-const roleIcons = {
-  mensch: "/images/1751137231571_KIVI_Mensch.png",
-  team: "/images/1751137237409_KIVI_Team.png",
-  organisation: "/images/1751137236725_KIVI_Orga.png",
-  oekosystem: "/images/1751137233943_KIVI__kosystem.PNG",
+const roleImages = {
+  mensch: "/images-optimized/4_KIVISAI-NAVI/KIVI_Mensch.webp",
+  team: "/images-optimized/4_KIVISAI-NAVI/KIVI_Team.webp",
+  organisation: "/images-optimized/4_KIVISAI-NAVI/KIVI_Orga.webp",
+  oekosystem: "/images-optimized/4_KIVISAI-NAVI/KIVI_Ökosystem.webp",
 }
 
 export default function RoleSelection({ onRoleSelect }: RoleSelectionProps) {
@@ -41,7 +41,7 @@ export default function RoleSelection({ onRoleSelect }: RoleSelectionProps) {
         subtitle="Schritt 1: Perspektive wählen"
         description="Wählen Sie aus, aus welcher Perspektive Sie Ihre KI-Fitness bewerten möchten. Jede Rolle bietet eine individuelle Selbsteinschätzung – für Einzelpersonen, Teams, Organisationen oder Ökosysteme."
       />
-      <div className="max-w-4xl mx-auto mt-[-4rem]">
+      <div className="max-w-4xl mx-auto mt-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-kivisai-deep-dark-blue mb-4">Wählen Sie Ihre Rolle</h2>
           <p className="text-lg text-kivisai-moss-green">Aus welcher Perspektive möchten Sie Ihre KI-Fitness bewerten?</p>
@@ -49,7 +49,7 @@ export default function RoleSelection({ onRoleSelect }: RoleSelectionProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {EVALKIT_ROLES.map((role) => {
-            const iconSrc = roleIcons[role.id as keyof typeof roleIcons]
+            const iconSrc = roleImages[role.id as keyof typeof roleImages]
             const isSelected = selectedRole === role.id
 
             return (
@@ -71,7 +71,15 @@ export default function RoleSelection({ onRoleSelect }: RoleSelectionProps) {
                           : "bg-kivisai-light-cool-gray"
                       }`}
                     >
-                      <Image src={iconSrc} alt={role.name} width={56} height={56} className="w-14 h-14 object-contain" />
+                      <div className="w-14 h-14 rounded-full overflow-hidden bg-white flex items-center justify-center shadow border border-gray-200">
+                        <Image
+                          src={iconSrc}
+                          alt={role.name}
+                          width={48}
+                          height={48}
+                          className="w-12 h-12 object-contain"
+                        />
+                      </div>
                     </div>
                     <CardTitle className="text-xl text-kivisai-deep-dark-blue text-center">{role.name}</CardTitle>
                     <CardDescription className="text-kivisai-moss-green text-center">{role.description}</CardDescription>

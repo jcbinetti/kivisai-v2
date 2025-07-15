@@ -13,17 +13,17 @@ export default function TestImagesPage() {
 
   const testImages = [
     {
-      src: "/images/KIVI_Selbsteval_jung_breit.png",
+      src: "/images-optimized/KIVI_Selbsteval_jung_breit.webp",
       alt: "KIVI Selbstevaluation Jung Breit",
       title: "KIVI Selbstevaluation Jung Breit"
     },
     {
-      src: "/images/KIVISAI_logo_TR.png",
+      src: "/images-optimized/KIVISAI_logo_TR.webp",
       alt: "KIVISAI Logo",
       title: "KIVISAI Logo"
     },
     {
-      src: "/images/AI-Explorer-Club-Logo.png",
+      src: "/images-optimized/AI-Explorer-Club-Logo.webp",
       alt: "AI Explorer Club Logo",
       title: "AI Explorer Club Logo"
     }

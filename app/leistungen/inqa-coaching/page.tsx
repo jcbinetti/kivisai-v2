@@ -172,10 +172,10 @@ export default function INQACoachingPage() {
       <ContentSection variant="centered" background="white" padding="lg">
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 max-w-4xl mx-auto mb-6">
           <SafeImage
-            src="/images/Badges_Autorisierter_INQA-Coach_2025-2026.png"
+            src="/images-optimized/Badges_Autorisierter_INQA-Coach_2025-2026.webp"
             alt="Autorisierter INQA-Coach 2025-2026"
             width={120}
-            height={120}
+            height={60}
             className="h-auto"
           />
           <div className="flex flex-col md:flex-row items-center gap-4 w-full">
@@ -212,7 +212,7 @@ export default function INQACoachingPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <LightboxImage
-              src="/images/INQA-Prozessschritte.png"
+              src="/images-optimized/INQA-Prozessschritte.webp"
               alt="INQA-Coaching Arbeitsphasen: 3 strukturierte Phasen mit Planungssitzungen, Bewertungen und Fortschrittsberichten"
               width={600}
               height={400}
@@ -286,7 +286,7 @@ export default function INQACoachingPage() {
           </div>
           <div>
             <LightboxImage
-              src="/images/1_INQA_COACHING/INQA-Arbeitderzukunft.png"
+              src="/images-optimized/1_INQA_COACHING/INQA-Arbeitderzukunft.webp"
               alt="Die Arbeit der Zukunft: KI-Integration und menschliche Kompetenzen im Einklang"
               width={600}
               height={400}
@@ -358,9 +358,9 @@ export default function INQACoachingPage() {
         </div>
         <div className="flex justify-center">
           <LightboxImage
-            src="/images/1_INQA_COACHING/INQA-Themenfelder.png"
+            src="/images-optimized/1_INQA_COACHING/INQA-Themenfelder.webp"
             alt="INQA Themenfelder: Führung, Gesundheit, Chancengleichheit & Diversity, Wissen & Kompetenz"
-            width={700}
+            width={600}
             height={400}
             className="w-full max-w-2xl h-auto rounded-lg shadow-lg"
             caption="Klicken zum Vergrößern"

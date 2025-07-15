@@ -15,10 +15,10 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^3.98.1",
+    "@sanity/vision": "^3.99.0",
     "@tailwindcss/postcss": "^4.1.11",
     "framer-motion": "^12.22.0",
-    "sanity": "^3.98.1",
+    "sanity": "^3.99.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {

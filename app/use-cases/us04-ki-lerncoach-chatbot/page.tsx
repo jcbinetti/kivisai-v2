@@ -83,11 +83,11 @@ export default function KiLerncoachChatbotPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/1751134144560_UC_Netzwerkpexels-kindelmedia-7054722.jpg"
-                alt="KI-Lerncoach Chatbot - Interaktive Lernunterstützung"
+                src="/images-optimized/UC_Netzwerkpexels-kindelmedia-7054722.webp"
+                alt="KI-Lerncoach Chatbot"
                 width={600}
                 height={400}
-                className="rounded-lg shadow-lg"
+                className="w-full h-auto rounded-lg shadow-lg"
               />
               <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2">
                 <span className="text-kivisai-deep-dark-blue font-bold text-sm">4h</span>
@@ -273,7 +273,7 @@ export default function KiLerncoachChatbotPage() {
                 <div className="mb-6">
                   <div className="relative w-full max-w-3xl mx-auto">
                     <Image
-                      src="/images/4_KIVISAI-NAVI/KIVI_GROW.png"
+                      src="/images-optimized/4_KIVISAI-NAVI/KIVI_GROW.webp"
                       alt="KI-Lerncoach Chatbot Interface"
                       width={600}
                       height={400}

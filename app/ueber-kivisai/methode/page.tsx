@@ -25,7 +25,7 @@ export default function MethodePage() {
           <div className="order-2 lg:order-1 flex justify-center">
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-kivisai-deep-dark-blue">
               <Image 
-                src="/images/4_KIVISAI-NAVI/KIVI_THINK.png" 
+                src="/images-optimized/4_KIVISAI-NAVI/KIVI_THINK.webp" 
                 alt="KIVISAI THINK Prinzip" 
                 width={80} 
                 height={80} 
@@ -48,7 +48,7 @@ export default function MethodePage() {
           <div className="order-2 lg:order-1 flex justify-center">
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-kivisai-clear-turquoise">
               <Image 
-                src="/images/4_KIVISAI-NAVI/KIVI_ENABLE.png" 
+                src="/images-optimized/4_KIVISAI-NAVI/KIVI_ENABLE.webp" 
                 alt="KIVISAI ENABLE Prinzip" 
                 width={80} 
                 height={80} 
@@ -75,7 +75,7 @@ export default function MethodePage() {
           <div className="order-2 lg:order-1 flex justify-center">
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-orange-500">
               <Image 
-                src="/images/4_KIVISAI-NAVI/KIVI_SHARE.png" 
+                src="/images-optimized/4_KIVISAI-NAVI/KIVI_SHARE.webp" 
                 alt="KIVISAI SHARE Prinzip" 
                 width={80} 
                 height={80} 
@@ -103,7 +103,7 @@ export default function MethodePage() {
           <div className="order-2 lg:order-1 flex justify-center">
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center justify-center h-32 w-32 border border-kivisai-moss-green">
               <Image 
-                src="/images/4_KIVISAI-NAVI/KIVI_GROW.png" 
+                src="/images-optimized/4_KIVISAI-NAVI/KIVI_GROW.webp" 
                 alt="KIVISAI GROW Prinzip" 
                 width={80} 
                 height={80} 
@@ -128,16 +128,16 @@ export default function MethodePage() {
         {/* KIVISAI Loop Visual & Text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-8">
           <div className="order-2 lg:order-1 flex justify-center">
-            <div className="w-full">
-              <Image 
-                src="/images/KIVISAI-LOOP_01_Gradient.png"
-                alt="KIVISAI Loop Visual"
-                width={600}
-                height={600}
-                className="w-full h-auto rounded-xl shadow-md"
-                priority
-              />
-            </div>
+                          <div className="w-full">
+                <Image 
+                  src="/images-optimized/4_KIVISAI-NAVI/KIVI_4-phasen.webp"
+                  alt="KIVISAI Loop Visual: THINK - ENABLE - SHARE - GROW"
+                  width={600}
+                  height={600}
+                  className="w-full h-auto rounded-xl shadow-md"
+                  priority
+                />
+              </div>
           </div>
           <div className="order-1 lg:order-2">
             <h3 className="font-semibold text-lg mb-2">Der KIVISAI-Loop: THINK – ENABLE – SHARE – GROW</h3>

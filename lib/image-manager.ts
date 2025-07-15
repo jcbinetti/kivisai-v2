@@ -36,12 +36,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
   // KIVISAI Logos - Updated with new versions
   "kivisai-logo": {
     id: "kivisai-logo",
-    filename: "KIVISAI_logo_TR.png",
-    path: "/images/KIVISAI_logo_TR.png",
+    filename: "KIVISAI_logo_TR.webp",
+    path: "/images-optimized/KIVISAI_logo_TR.webp",
     alt: "KIVISAI Logo - Experten für KI-Transformation und menschlich-strategische Beratung",
     width: 300,
     height: 100,
-    format: "png",
+    format: "webp",
     category: "logo",
     tags: ["kivisai", "logo", "brand", "header"],
     lastModified: "2024-06-18",
@@ -51,12 +51,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
 
   "kivisai-logo-invert": {
     id: "kivisai-logo-invert",
-    filename: "KIVISAI_logo_invert_alone.png",
-    path: "/images/KIVISAI_logo_invert_alone.png",
+    filename: "KIVISAI_logo_invert_alone.webp",
+    path: "/images-optimized/3_LABEL-LOGO/KIVISAI_logo_invert_alone.webp",
     alt: "KIVISAI Logo Invertiert - Für dunkle Hintergründe",
     width: 300,
     height: 100,
-    format: "png",
+    format: "webp",
     category: "logo",
     tags: ["kivisai", "logo", "brand", "invert", "dark-background"],
     lastModified: "2024-06-18",
@@ -66,12 +66,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
 
   "kivisai-signet": {
     id: "kivisai-signet",
-    filename: "KIVISAI_signet_tr.png",
-    path: "/images/KIVISAI_signet_tr.png",
+    filename: "KIVISAI_signet_tr.webp",
+    path: "/images-optimized/KIVISAI_signet_tr.webp",
     alt: "KIVISAI Signet - Symbol für die Verbindung von menschlicher und künstlicher Intelligenz",
     width: 120,
     height: 120,
-    format: "png",
+    format: "webp",
     category: "logo",
     tags: ["kivisai", "signet", "icon"],
     lastModified: "2024-06-18",
@@ -129,12 +129,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
   // INQA Coach Badge
   "inqa-coach-badge": {
     id: "inqa-coach-badge",
-    filename: "Badges_Autorisierter_INQA-Coach_2025-2026.png",
-    path: "/images/Badges_Autorisierter_INQA-Coach_2025-2026.png",
+    filename: "Badges_Autorisierter_INQA-Coach_2025-2026.webp",
+    path: "/images-optimized/Badges_Autorisierter_INQA-Coach_2025-2026.webp",
     alt: "Autorisierter INQA-Coach 2025-2026 Badge - Agil in die digitale Zukunft",
     width: 300,
     height: 400,
-    format: "png",
+    format: "webp",
     category: "badge",
     tags: ["inqa", "coach", "zertifikat", "badge", "2025", "2026", "digital"],
     lastModified: "2024-06-18",
@@ -161,12 +161,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
   // Fairness First Siegel
   "ff-siegel-fairness": {
     id: "ff-siegel-fairness",
-    filename: "FF-Siegel_FF_convis_RGB.png",
-    path: "/images/FF-Siegel_FF_convis_RGB.png",
+    filename: "FF-Siegel_FF_convis_RGB.webp",
+    path: "/images-optimized/FF-Siegel_FF_convis_RGB.webp",
     alt: "Fairness First Siegel - Transparent, kooperativ, wertschätzend",
     width: 250,
     height: 350,
-    format: "png",
+    format: "webp",
     category: "badge",
     tags: ["fairness", "first", "siegel", "convis", "transparent", "kooperativ"],
     lastModified: "2024-06-18",
@@ -177,12 +177,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
   // Unternehmen der Zukunft Siegel
   "ff-siegel-zukunft": {
     id: "ff-siegel-zukunft",
-    filename: "FF-Siegel_UZ_convis_RGB.png",
-    path: "/images/FF-Siegel_UZ_convis_RGB.png",
+    filename: "FF-Siegel_UZ_convis_RGB.webp",
+    path: "/images-optimized/FF-Siegel_UZ_convis_RGB.webp",
     alt: "Unternehmen der Zukunft Siegel - Proaktiv, engagiert, zukunftsfähig",
     width: 250,
     height: 350,
-    format: "png",
+    format: "webp",
     category: "badge",
     tags: ["unternehmen", "zukunft", "siegel", "convis", "proaktiv", "engagiert"],
     lastModified: "2024-06-18",
@@ -193,12 +193,12 @@ export const IMAGE_REGISTRY: Record<string, ImageAsset> = {
   // SGS Zertifizierung
   "ff-siegel-sgs": {
     id: "ff-siegel-sgs",
-    filename: "FF-Siegel_SGS.png",
-    path: "/images/FF-Siegel_SGS.png",
+    filename: "FF-Siegel_SGS.webp",
+    path: "/images-optimized/FF-Siegel_SGS.webp",
     alt: "SGS ISO 9001 System Certification und Swiss Accreditation Siegel",
     width: 400,
     height: 200,
-    format: "png",
+    format: "webp",
     category: "badge",
     tags: ["sgs", "iso", "9001", "certification", "swiss", "accreditation"],
     lastModified: "2024-06-18",
@@ -491,6 +491,52 @@ export class ImageManager {
   private isInitialized = false
   private registryPath = './image-registry.json'
 
+  // Sanity-Integration initialisieren - OPTIMIERT mit Caching
+  private sanityInitPromise: Promise<void> | null = null;
+  
+  async initializeSanity(): Promise<void> {
+    // Wenn bereits initialisiert, sofort zurückkehren
+    if (this.isInitialized) return;
+    
+    // Wenn Initialisierung bereits läuft, auf diese warten
+    if (this.sanityInitPromise) {
+      await this.sanityInitPromise;
+      return;
+    }
+    
+    // Neue Initialisierung starten
+    this.sanityInitPromise = this._initializeSanity();
+    await this.sanityInitPromise;
+  }
+  
+  private async _initializeSanity(): Promise<void> {
+    try {
+      // Sanity komplett deaktivieren wenn nicht benötigt
+      if (process.env.DISABLE_SANITY === 'true') {
+        this.isInitialized = true;
+        return;
+      }
+      
+      // Nur in Development oder wenn explizit benötigt
+      if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+        console.log('Initializing Sanity images...');
+      }
+      
+      this.sanityImages = await getAllSanityImages();
+      this.isInitialized = true;
+      
+      if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+        console.log('Sanity images initialized successfully');
+      }
+    } catch (error) {
+      console.error('Failed to initialize Sanity images:', error);
+      // Bei Fehler trotzdem als initialisiert markieren, um endlose Versuche zu vermeiden
+      this.isInitialized = true;
+    } finally {
+      this.sanityInitPromise = null;
+    }
+  }
+
   private constructor() {
     this.registry = IMAGE_REGISTRY
   }
@@ -534,18 +580,6 @@ export class ImageManager {
       }
     } catch (error) {
       console.error('Error saving registry:', error)
-    }
-  }
-
-  // Sanity-Integration initialisieren
-  async initializeSanity(): Promise<void> {
-    if (this.isInitialized) return
-    
-    try {
-      this.sanityImages = await getAllSanityImages()
-      this.isInitialized = true
-    } catch (error) {
-      console.error('Failed to initialize Sanity images:', error)
     }
   }
 

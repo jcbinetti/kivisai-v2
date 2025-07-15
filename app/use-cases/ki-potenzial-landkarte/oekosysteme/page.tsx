@@ -68,7 +68,7 @@ export default function OekosystemeKIPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/2_KIVI_4_EBENE/KIVI_oekosystem.png"
+                src="/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp"
                 alt="Vernetzte KI-Systeme schaffen gesellschaftliche Synergien: Diverse Gruppe arbeitet an nachhaltigen, globalen KI-Lösungen mit Fokus auf Umweltverantwortung"
                 fill
                 className="object-cover"

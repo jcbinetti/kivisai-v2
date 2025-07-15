@@ -3,60 +3,98 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { ChevronDown, Menu, X, LogIn, LogOut, User } from "lucide-react"
 import SafeImage from "@/components/safe-image"
-import { menuItems } from "@/lib/menu-data"
+import { menuItems, getFilteredMenuItems } from "@/lib/menu-data"
+import { auth } from "@/lib/auth"
+import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 export default function Header() {
+  const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [expandedMobileItems, setExpandedMobileItems] = useState<string[]>([])
-  const pathname = usePathname()
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  // Check authentication status on mount and when it changes
+  useEffect(() => {
+    const checkAuth = () => {
+      const authenticated = auth.isAuthenticated();
+      const admin = auth.isAdmin();
+      setIsAuthenticated(authenticated);
+      setIsAdmin(admin);
+    };
+
+    checkAuth();
+    
+    // Listen for storage changes (login/logout)
+    const handleStorageChange = () => {
+      checkAuth();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   const isActive = (path: string) => {
-    if (!pathname) return false
-    return pathname === path || (path !== "/" && pathname.startsWith(path))
+    return pathname === path || pathname.startsWith(path + "/")
   }
 
-  // Close menu on escape key (mobile)
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isMenuOpen) {
+      if (e.key === "Escape") {
         setIsMenuOpen(false)
-        setExpandedMobileItems([])
       }
     }
-    document.addEventListener("keydown", handleEscape)
-    return () => document.removeEventListener("keydown", handleEscape)
+
+    if (isMenuOpen) {
+      document.addEventListener("keydown", handleEscape)
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape)
+      document.body.style.overflow = "unset"
+    }
   }, [isMenuOpen])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
-    if (!isMenuOpen) {
-      setExpandedMobileItems([])
-    }
   }
 
   const toggleMobileSubmenu = (itemName: string) => {
-    setExpandedMobileItems(prev => 
-      prev.includes(itemName) 
+    setExpandedMobileItems(prev =>
+      prev.includes(itemName)
         ? prev.filter(name => name !== itemName)
         : [...prev, itemName]
     )
   }
 
+  const handleLogout = () => {
+    auth.logout();
+    setIsAuthenticated(false);
+    setIsAdmin(false);
+  };
+
+  // Get filtered menu items based on authentication
+  const filteredMenuItems = getFilteredMenuItems(isAuthenticated, isAdmin);
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-kivisai-pure-white shadow-md z-50" role="banner">
-      <div className="container mx-auto px-4 relative">
-        <div className="flex items-center justify-between h-20">
+    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center focus:outline-none focus:ring-2 focus:ring-kivisai-clear-turquoise rounded-md"
+            className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-kivisai-clear-turquoise rounded-md"
             aria-label="KIVISAI Startseite"
             scroll={true}
           >
             <SafeImage
-              src="/images/KIVISAI_logo_TR.png"
+              src="/images-optimized/KIVISAI_logo_TR.webp"
               alt="KIVISAI Logo - Zukunft gestalten. Regenerativ. Wirksam."
               width={150}
               height={50}
@@ -66,7 +104,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-2 lg:space-x-4 xl:space-x-6 items-center" role="navigation" aria-label="Hauptnavigation">
-            {menuItems?.map((item) => (
+            {filteredMenuItems?.map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
@@ -140,6 +178,33 @@ export default function Header() {
                 )}
               </div>
             ))}
+
+            {/* Auth Section */}
+            <div className="ml-4">
+              {isAuthenticated ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                      <User className="w-4 h-4" />
+                      {auth.getCurrentUser()?.name || 'Admin'}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={handleLogout} className="text-red-600">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Abmelden
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link href="/admin/login">
+                  <Button variant="outline" size="sm" className="flex items-center gap-2">
+                    <LogIn className="w-4 h-4" />
+                    Admin
+                  </Button>
+                </Link>
+              )}
+            </div>
           </nav>
 
           {/* Hamburger menu button - only on mobile */}
@@ -168,7 +233,7 @@ export default function Header() {
           >
             <div className="flex justify-between items-center mb-6">
               <SafeImage
-                src="/images/KIVISAI_logo_TR.png"
+                src="/images-optimized/KIVISAI_logo_TR.webp"
                 alt="KIVISAI Logo - Zukunft gestalten. Regenerativ. Wirksam."
                 width={120}
                 height={40}
@@ -183,7 +248,7 @@ export default function Header() {
               </button>
             </div>
             <nav className="flex flex-col gap-2">
-              {menuItems && menuItems.map((item) => {
+              {filteredMenuItems && filteredMenuItems.map((item) => {
                 if (!item) return null
                 
                 const hasChildren = item.children && item.children.length > 0
@@ -297,6 +362,28 @@ export default function Header() {
                   </div>
                 )
               })}
+
+              {/* Mobile Auth Section */}
+              <div className="mt-6 pt-6 border-t border-gray-200">
+                {isAuthenticated ? (
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">
+                      Angemeldet als: {auth.getCurrentUser()?.name || 'Admin'}
+                    </span>
+                    <Button variant="outline" size="sm" onClick={handleLogout} className="text-red-600">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Abmelden
+                    </Button>
+                  </div>
+                ) : (
+                  <Link href="/admin/login" className="block">
+                    <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+                      <LogIn className="w-4 h-4" />
+                      Admin Login
+                    </Button>
+                  </Link>
+                )}
+              </div>
             </nav>
           </div>
         )}

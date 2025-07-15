@@ -171,7 +171,7 @@ export default function ComingSoonClient() {
             {/* KIVISAI Logo */}
             <div className="mb-8">
               <Image
-                src="/images/KIVISAI_logo_TR.png"
+                src="/images-optimized/KIVISAI_logo_TR.webp"
                 alt="KIVISAI Logo"
                 width={300}
                 height={100}
@@ -250,7 +250,7 @@ export default function ComingSoonClient() {
             <div className="border-t border-white/20 pt-8 mt-8">
               <div className="flex justify-center mb-6">
                 <Image
-                  src="/images/KIVISAI_logo_TR.png"
+                  src="/images-optimized/KIVISAI_logo_TR.webp"
                   alt="KIVISAI Logo"
                   width={200}
                   height={80}

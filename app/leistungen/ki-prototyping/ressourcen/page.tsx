@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
+import Image from 'next/image';
 
 const roles = [
   {
@@ -192,11 +193,6 @@ export default function KIPrototypingRessourcenPage() {
               <div>
                 <h3 className="text-xl font-bold text-kivisai-dark-blue mb-2 flex items-center gap-2">
                   Wissenstransfer
-                  <img 
-                    src="/images/KIVISAI_signet_tr.png" 
-                    alt="KIVISAI Signet" 
-                    className="w-6 h-6 opacity-80"
-                  />
                 </h3>
                 <p className="text-kivisai-moss-green leading-relaxed">
                   Wir befähigen Ihr Team, damit Sie langfristig unabhängig werden und selbst weiterentwickeln können.
@@ -216,6 +212,15 @@ export default function KIPrototypingRessourcenPage() {
                 </p>
               </div>
             </div>
+          </div>
+          <div className="flex items-center justify-center p-4 bg-gradient-to-r from-kivisai-light-cool-gray to-white rounded-lg shadow-lg col-span-1 md:col-span-2">
+            <Image
+              src="/images-optimized/KIVISAI_signet_tr.webp"
+              alt="KIVISAI Signet"
+              width={120}
+              height={120}
+              className="w-32 h-auto"
+            />
           </div>
         </div>
       </section>

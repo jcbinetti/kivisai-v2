@@ -212,7 +212,7 @@ export default function AdminPageBuilder() {
             description: "Systematische Analyse und Bewertung der KI-Implementierungsmöglichkeiten in Ihrem Unternehmen.",
             ctaText: "Jetzt analysieren",
             ctaLink: "/termin",
-            backgroundImage: "/images/ki-potenzialanalyse-hero.jpg"
+            backgroundImage: "linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%)"
           },
           order: 1
         },

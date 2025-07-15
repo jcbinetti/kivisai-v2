@@ -13,7 +13,7 @@ export default function JCBinettiProfilePage() {
       {/* Hero-Banner */}
       <section className="relative w-full h-[260px] md:h-[320px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/KIVI-PA-WS-Team.png" // Bannerbild: The Future is Now
+          src="/images-optimized/KIVI-PA-WS-Team.webp" // Bannerbild: The Future is Now
           alt="The Future is Now. Start to Act. BINETTI."
           fill
           className="object-cover object-center opacity-90"
@@ -33,7 +33,7 @@ export default function JCBinettiProfilePage() {
               {/* Badges unter KI-Consultant */}
               <div className="flex gap-2 mt-2">
                 <Image
-                  src="/images/Badge_TÜV_JC.png"
+                  src="/images-optimized/Badge_TÜV_JC.webp"
                   alt="TÜV-zertifiziert"
                   width={40}
                   height={40}
@@ -41,7 +41,7 @@ export default function JCBinettiProfilePage() {
                   className="rounded shadow border border-gray-200 bg-white p-1"
                 />
                 <Image
-                  src="/images/Badges_Autorisierter_INQA-Coach_2025-2026.png"
+                  src="/images-optimized/Badges_Autorisierter_INQA-Coach_2025-2026.webp"
                   alt="INQA-Coach"
                   width={40}
                   height={40}
@@ -70,7 +70,7 @@ export default function JCBinettiProfilePage() {
       <section className="container mx-auto px-4 flex flex-col items-center -mt-24 md:-mt-32 mb-8">
         <div className="relative w-48 h-48 rounded-full overflow-hidden border-8 border-white shadow-xl bg-white">
           <Image
-            src="/images/Profil_BINETTI.jpeg"
+            src="/images-optimized/Profil-BINETTI-LI-Kopf.webp"
             alt="JC BINETTI Profilfoto"
             fill
             className="object-cover object-center"

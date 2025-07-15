@@ -58,11 +58,11 @@ export default function KiChatbotAgileCoachPage() {
             <Card className="overflow-hidden shadow-lg">
               <CardContent className="p-0">
                 <Image
-                  src="/images/4_KIVISAI-NAVI/KIVI_REFLECT.png"
-                  alt="Agile Coach mit KI-Chatbot - Interaktive Coaching-Unterstützung"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
+                  src="/images-optimized/4_KIVISAI-NAVI/KIVI_REFLECT.webp"
+                  alt="KIVI Reflect"
+                  width={200}
+                  height={200}
+                  className="w-full h-auto"
                 />
               </CardContent>
             </Card>

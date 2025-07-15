@@ -76,10 +76,38 @@ export default function TeamNetzwerkPage() {
         <div className="mb-16">
           <h3 className="text-xl font-semibold mb-4 text-center text-kivisai-deep-dark-blue">Unsere Partner</h3>
           <div className="flex flex-wrap justify-center items-center gap-8">
-            <Image src="/images/Logo_sqlxpert.png" alt="SQLXpert" width={120} height={60} />
-            <Image src="/images/Logo_mobileatmedia.jpg" alt="Mobile ad media" width={120} height={60} />
-            <Image src="/images/CONVIS_Logo_RGB_72dpi_web.jpg" alt="CONVIS" width={120} height={60} />
-            <Image src="/images/Logo_TfT.png" alt="Tools for tomorrow" width={120} height={60} />
+            <a 
+              href="https://sqlxpert.de/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform duration-200"
+            >
+              <Image src="/images-optimized/Logo_sqlxpert.webp" alt="SQLXpert" width={120} height={60} />
+            </a>
+            <a 
+              href="https://www.mobile-ad-media.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform duration-200"
+            >
+              <Image src="/images-optimized/Logo_mobileatmedia.webp" alt="Mobile ad media" width={120} height={60} />
+            </a>
+            <a 
+              href="https://www.convisconsult.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform duration-200"
+            >
+              <Image src="/images-optimized/CONVIS_Logo_RGB_72dpi_web.webp" alt="CONVIS" width={120} height={60} />
+            </a>
+            <a 
+              href="https://www.tomorrow.tools/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform duration-200"
+            >
+              <Image src="/images-optimized/Logo_TfT.webp" alt="Tools for tomorrow" width={120} height={60} />
+            </a>
           </div>
         </div>
       </div>

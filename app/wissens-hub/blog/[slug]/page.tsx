@@ -3,6 +3,7 @@ import { getImageUrl, getImageAlt } from "@/lib/image-utils"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 interface ArticlePageProps {
   params: Promise<{
@@ -10,77 +11,199 @@ interface ArticlePageProps {
   }>
 }
 
-// Helper function to convert Portable Text to HTML
-function portableTextToHtml(blocks: any[]): string {
-  if (!blocks || !Array.isArray(blocks)) return ''
-  
-  return blocks.map(block => {
-    if (block._type === 'block') {
-      const style = block.style || 'normal'
-      const children = block.children?.map((child: any) => {
-        let text = child.text || ''
-        
-        // Handle marks (bold, italic, underline, links)
-        if (child.marks && Array.isArray(child.marks)) {
-          child.marks.forEach((mark: string) => {
-            switch (mark) {
-              case 'strong':
-                text = `<strong>${text}</strong>`
-                break
-              case 'em':
-                text = `<em>${text}</em>`
-                break
-              case 'underline':
-                text = `<u>${text}</u>`
-                break
-              case 'link':
-                // Handle links - we need to find the link reference
-                const linkMark = child.markDefs?.find((def: any) => def._key === mark)
-                if (linkMark && linkMark.href) {
-                  text = `<a href="${linkMark.href}" target="_blank" rel="noopener noreferrer" class="text-kivisai-clear-turquoise hover:text-kivisai-deep-dark-blue underline">${text}</a>`
-                }
-                break
-            }
-          })
+const portableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="mb-4 text-kivisai-moss-green leading-relaxed">{children}</p>,
+    h2: ({ children }) => <h2 className="text-2xl font-bold mb-3 text-kivisai-deep-dark-blue">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-semibold mb-2 text-kivisai-deep-dark-blue">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-lg font-semibold mb-2 text-kivisai-deep-dark-blue">{children}</h4>,
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-kivisai-clear-turquoise pl-4 italic text-kivisai-moss-green mb-4">{children}</blockquote>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className="list-disc ml-6 mb-4">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal ml-6 mb-4">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }) => <li className="mb-2">{children}</li>,
+    number: ({ children }) => <li className="mb-2">{children}</li>,
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+    underline: ({ children }) => <u className="underline">{children}</u>,
+    link: ({ value, children }) => (
+      <a
+        href={value?.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-kivisai-clear-turquoise underline hover:text-kivisai-deep-dark-blue"
+      >
+        {children}
+      </a>
+    ),
+    internalLink: ({ value, children }) => {
+      // Helper function to get the correct URL based on link type
+      const getInternalUrl = (linkData: any) => {
+        switch (linkData.linkType) {
+          case 'services':
+            return linkData.service?.slug?.current ? `/leistungen/${linkData.service.slug.current}` : '#'
+          case 'blog':
+            return linkData.blogPost?.slug?.current ? `/wissens-hub/blog/${linkData.blogPost.slug.current}` : '#'
+          case 'usecases':
+            return linkData.useCase?.slug?.current ? `/use-cases/${linkData.useCase.slug.current}` : '#'
+          case 'about':
+            return linkData.aboutPage || '#'
+          case 'contact':
+            return linkData.contactPage || '#'
+          case 'knowledge':
+            return linkData.knowledgePage || '#'
+          default:
+            return '#'
         }
-        
-        return text
-      }).join('') || ''
-      
-      switch (style) {
-        case 'h1': return `<h1 class="text-3xl font-bold mb-4 text-kivisai-deep-dark-blue">${children}</h1>`
-        case 'h2': return `<h2 class="text-2xl font-bold mb-3 text-kivisai-deep-dark-blue">${children}</h2>`
-        case 'h3': return `<h3 class="text-xl font-semibold mb-2 text-kivisai-deep-dark-blue">${children}</h3>`
-        case 'h4': return `<h4 class="text-lg font-semibold mb-2 text-kivisai-deep-dark-blue">${children}</h4>`
-        case 'blockquote': return `<blockquote class="border-l-4 border-kivisai-clear-turquoise pl-4 italic text-kivisai-moss-green mb-4">${children}</blockquote>`
-        default: return `<p class="mb-4 text-kivisai-moss-green leading-relaxed">${children}</p>`
       }
-    }
-    
-    // Handle lists
-    if (block._type === 'list') {
-      const listType = block.listItem === 'bullet' ? 'ul' : 'ol'
-      const items = block.children?.map((item: any) => {
-        const itemText = item.children?.map((child: any) => {
-          let text = child.text || ''
-          if (child.marks && Array.isArray(child.marks)) {
-            child.marks.forEach((mark: string) => {
-              switch (mark) {
-                case 'strong': text = `<strong>${text}</strong>`; break
-                case 'em': text = `<em>${text}</em>`; break
-                case 'underline': text = `<u>${text}</u>`; break;
-              }
-            })
-          }
-          return text
-        }).join('') || ''
-        return `<li class="mb-2 text-kivisai-moss-green">${itemText}</li>`
-      }).join('') || ''
-      return `<${listType} class="mb-4 ml-6 text-kivisai-moss-green">${items}</${listType}>`
-    }
-    
-    return ''
-  }).join('')
+
+      const url = getInternalUrl(value)
+      const linkText = value.customText || children || 'Internal Link'
+      
+      return (
+        <a
+          href={url}
+          target={value.openInNewTab ? '_blank' : '_self'}
+          rel={value.openInNewTab ? 'noopener noreferrer' : ''}
+          className="text-kivisai-clear-turquoise underline hover:text-kivisai-deep-dark-blue font-medium"
+        >
+          {linkText}
+        </a>
+      )
+    },
+  },
+  types: {
+    image: ({ value }) => (
+      <div className="my-6">
+        <img
+          src={getImageUrl(value)}
+          alt={value.alt || ''}
+          className="w-full h-auto rounded-lg shadow-md"
+        />
+        {value.caption && (
+          <p className="text-sm text-kivisai-moss-green/70 mt-2 text-center italic">
+            {value.caption}
+          </p>
+        )}
+      </div>
+    ),
+    customButton: ({ value }) => {
+      const buttonClasses = {
+        primary: 'bg-kivisai-clear-turquoise text-white hover:bg-kivisai-vibrant-turquoise',
+        secondary: 'bg-kivisai-deep-dark-blue text-white hover:bg-kivisai-deep-dark-blue/90',
+        outline: 'border-2 border-kivisai-clear-turquoise text-kivisai-clear-turquoise hover:bg-kivisai-clear-turquoise hover:text-white',
+      }
+      
+      return (
+        <div className="my-6 text-center">
+          <a
+            href={value.url}
+            target={value.openInNewTab ? '_blank' : '_self'}
+            rel={value.openInNewTab ? 'noopener noreferrer' : ''}
+            className={`inline-block px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${buttonClasses[value.style as keyof typeof buttonClasses] || buttonClasses.primary}`}
+          >
+            {value.text}
+          </a>
+        </div>
+      )
+    },
+    callout: ({ value }) => {
+      const calloutStyles = {
+        info: 'bg-blue-50 border-blue-200 text-blue-800',
+        success: 'bg-green-50 border-green-200 text-green-800',
+        warning: 'bg-orange-50 border-orange-200 text-orange-800',
+        tip: 'bg-kivisai-light-cool-gray border-kivisai-clear-turquoise text-kivisai-deep-dark-blue',
+      }
+      
+      return (
+        <div className={`my-6 p-4 border-l-4 rounded-r-lg ${calloutStyles[value.type as keyof typeof calloutStyles] || calloutStyles.info}`}>
+          {value.title && (
+            <h4 className="font-semibold mb-2">{value.title}</h4>
+          )}
+          <div className="text-sm">
+            <PortableText value={value.content} components={portableTextComponents} />
+          </div>
+        </div>
+      )
+    },
+    customQuote: ({ value }) => {
+      const quoteStyles = {
+        standard: 'border-l-4 border-kivisai-clear-turquoise pl-4',
+        large: 'text-xl border-l-4 border-kivisai-clear-turquoise pl-6',
+        background: 'bg-kivisai-light-cool-gray p-6 rounded-lg border-l-4 border-kivisai-clear-turquoise',
+      }
+      
+      return (
+        <div className={`my-6 italic ${quoteStyles[value.style as keyof typeof quoteStyles] || quoteStyles.standard}`}>
+          <blockquote className="text-kivisai-moss-green mb-2">
+            "{value.quote}"
+          </blockquote>
+          {(value.author || value.source) && (
+            <footer className="text-sm text-kivisai-moss-green/70">
+              {value.author && <span className="font-semibold">— {value.author}</span>}
+              {value.author && value.source && <span> • </span>}
+              {value.source && <span>{value.source}</span>}
+            </footer>
+          )}
+        </div>
+      )
+    },
+    socialShare: ({ value }) => {
+      const platformConfig = {
+        linkedin: {
+          name: 'LinkedIn',
+          color: 'bg-gray-400 cursor-not-allowed',
+          icon: '💼',
+        },
+        twitter: {
+          name: 'Twitter/X',
+          color: 'bg-gray-400 cursor-not-allowed',
+          icon: '🐦',
+        },
+        facebook: {
+          name: 'Facebook',
+          color: 'bg-gray-400 cursor-not-allowed',
+          icon: '📘',
+        },
+        instagram: {
+          name: 'Instagram',
+          color: 'bg-gray-400 cursor-not-allowed',
+          icon: '📷',
+        },
+      }
+      
+      const config = platformConfig[value.platform as keyof typeof platformConfig]
+      const shareText = value.customText || 'Check out this article!'
+      const hashtags = value.hashtags?.join(',') || ''
+      
+      return (
+        <div className="my-6 p-4 bg-gray-50 rounded-lg border">
+          <h4 className="font-semibold text-kivisai-deep-dark-blue mb-3">
+            Share on {config?.name} (Deaktiviert)
+          </h4>
+          <p className="text-sm text-kivisai-moss-green mb-3">
+            {shareText}
+            {hashtags && <span className="text-kivisai-clear-turquoise"> {hashtags}</span>}
+          </p>
+          <button
+            className={`inline-flex items-center gap-2 px-4 py-2 text-white rounded-lg transition-colors ${config?.color}`}
+            disabled
+            title="Social Share ist vorübergehend deaktiviert"
+          >
+            <span>{config?.icon}</span>
+            Share on {config?.name} (Deaktiviert)
+          </button>
+        </div>
+      )
+    },
+  },
 }
 
 export async function generateStaticParams() {
@@ -99,9 +222,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   if (!article) {
     notFound()
   }
-
-  // Convert Portable Text to HTML
-  const contentHtml = article.body ? portableTextToHtml(article.body) : ''
 
   return (
     <div className="min-h-screen bg-kivisai-pure-white pt-20">
@@ -159,20 +279,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       )}
 
       {/* Article Content */}
-      {contentHtml && (
+      {article.body && (
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div
-                className="prose prose-lg max-w-none text-kivisai-moss-green"
-                dangerouslySetInnerHTML={{ __html: contentHtml }}
-              />
+              <div className="prose prose-lg max-w-none text-kivisai-moss-green">
+                <PortableText value={article.body} components={portableTextComponents} />
+              </div>
             </div>
           </div>
         </section>
       )}
-
-
     </div>
   )
 }

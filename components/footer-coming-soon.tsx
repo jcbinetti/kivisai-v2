@@ -5,7 +5,7 @@ export default function FooterComingSoon() {
     <footer className="bg-kivisai-light-cool-gray py-12 text-kivisai-moss-green" role="contentinfo">
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-6">
-          <SafeImage src="/images/KIVISAI_logo_TR.png" alt="KIVISAI Logo" width={200} height={80} className="h-auto" />
+          <SafeImage src="/images-optimized/KIVISAI_logo_TR.webp" alt="KIVISAI Logo" width={200} height={80} className="h-auto" />
         </div>
 
         <div className="space-y-4">

@@ -72,7 +72,7 @@ export default function AdminPagesPage() {
         tags: ["homepage", "hero"],
         seoTitle: "KIVISAI - KI-Coaching & Beratung",
         seoDescription: "Professionelle KI-Coaching und Beratung für Unternehmen und Einzelpersonen",
-        featuredImage: "/images/KIVISAI_logo_TR.png",
+        featuredImage: "/images-optimized/KIVISAI_logo_TR.webp",
         menuPosition: 1,
         isHomepage: true,
         hasCustomLayout: true
@@ -105,7 +105,7 @@ export default function AdminPagesPage() {
         tags: ["ki-potenzialanalyse", "service"],
         seoTitle: "KI-Potenzialanalyse - KIVISAI",
         seoDescription: "Professionelle KI-Potenzialanalyse für Ihr Unternehmen",
-        featuredImage: "/images/KIVI_Organisation.png",
+        featuredImage: "/images-optimized/KIVI_Organisation.webp",
         menuPosition: 3,
         isHomepage: false,
         hasCustomLayout: true
@@ -138,7 +138,7 @@ export default function AdminPagesPage() {
         tags: ["ki-prototyping", "service"],
         seoTitle: "KI-Prototyping - KIVISAI",
         seoDescription: "Schnelle KI-Prototypen für Ihre Ideen",
-        featuredImage: "/images/KIVI_Menschen_Assistent_Flat.png",
+        featuredImage: "/images-optimized/KIVI_Menschen_Assistent_Flat.webp",
         menuPosition: 6,
         isHomepage: false,
         hasCustomLayout: true
@@ -203,7 +203,7 @@ export default function AdminPagesPage() {
         tags: ["oekosystem", "solution"],
         seoTitle: "KI-Ökosystem-Lösungen - KIVISAI",
         seoDescription: "KI-Lösungen für komplexe Ökosysteme",
-        featuredImage: "/images/KIVI_oekosystem.png",
+        featuredImage: "/images-optimized/KIVI_oekosystem.webp",
         menuPosition: 10,
         isHomepage: false,
         hasCustomLayout: true
@@ -236,7 +236,7 @@ export default function AdminPagesPage() {
         tags: ["about", "company"],
         seoTitle: "Über KIVISAI - KI-Coaching & Beratung",
         seoDescription: "Lernen Sie KIVISAI kennen - Ihre Experten für KI-Coaching",
-        featuredImage: "/images/KIVI_Team_Flat.png",
+        featuredImage: "/images-optimized/KIVI_Team_Flat.webp",
         menuPosition: 12,
         isHomepage: false,
         hasCustomLayout: false
@@ -253,7 +253,7 @@ export default function AdminPagesPage() {
         tags: ["team", "network"],
         seoTitle: "Team & Netzwerk - KIVISAI",
         seoDescription: "Unser Team und Netzwerk von KI-Experten",
-        featuredImage: "/images/KIVI_Team_Flat.png",
+        featuredImage: "/images-optimized/KIVI_Team_Flat.webp",
         menuPosition: 13,
         isHomepage: false,
         hasCustomLayout: false

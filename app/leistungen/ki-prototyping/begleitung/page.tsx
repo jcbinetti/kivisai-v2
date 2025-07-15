@@ -87,15 +87,15 @@ export default function KIPrototypingBegleitungPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-              <img src="/images/4_KIVISAI-NAVI/KIVI_ENABLE.png" alt="Enable" className="w-4 h-4 mr-2" />
+              <img src="/images-optimized/4_KIVISAI-NAVI/KIVI_ENABLE.webp" alt="Enable" className="w-4 h-4 mr-2" />
               Schlank & fokussiert
             </Badge>
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-              <img src="/images/4_KIVISAI-NAVI/KIVI_Mensch.png" alt="Mensch" className="w-4 h-4 mr-2" />
+              <img src="/images-optimized/4_KIVISAI-NAVI/KIVI_Mensch.webp" alt="Mensch" className="w-4 h-4 mr-2" />
               Menschenzentriert
             </Badge>
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-              <img src="/images/4_KIVISAI-NAVI/KIVI-USECASE.png" alt="Use Case" className="w-4 h-4 mr-2" />
+              <img src="/images-optimized/4_KIVISAI-NAVI/KIVI-USECASE.webp" alt="Use Case" className="w-4 h-4 mr-2" />
               MVP-orientiert
             </Badge>
           </div>
@@ -152,7 +152,7 @@ export default function KIPrototypingBegleitungPage() {
               <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-kivisai-light-cool-gray to-white rounded-lg">
                 <div className="flex flex-col items-center w-20">
                   <img 
-                    src={`/images/4_KIVISAI-NAVI/KIVI_${promise.phase.toUpperCase()}.png`}
+                    src={`/images-optimized/4_KIVISAI-NAVI/KIVI_${promise.phase.toUpperCase()}.webp`}
                     alt={`KIVI ${promise.phase} Icon`}
                     className="w-16 h-16 mb-2"
                   />
@@ -221,7 +221,7 @@ export default function KIPrototypingBegleitungPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="border-0 bg-gradient-to-br from-kivisai-light-cool-gray to-white shadow-lg">
               <CardContent className="p-6 text-center">
-                <img src="/images/4_KIVISAI-NAVI/KIVI_Team.png" alt="Team" className="w-12 h-12 mx-auto mb-4" />
+                <img src="/images-optimized/4_KIVISAI-NAVI/KIVI_Team.webp" alt="Team" className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-kivisai-dark-blue mb-3">
                   Ihr KI-Begleiter Team
                 </h3>
@@ -231,7 +231,7 @@ export default function KIPrototypingBegleitungPage() {
                 </p>
                 <Button variant="kivisai" size="lg" className="w-full" asChild>
                   <a href="/ueber-kivisai/team-netzwerk">
-                    <img src="/images/4_KIVISAI-NAVI/KIVI_Team.png" alt="Team" className="w-4 h-4 mr-2" />
+                    <img src="/images-optimized/4_KIVISAI-NAVI/KIVI_Team.webp" alt="Team" className="w-4 h-4 mr-2" />
                     Team kennenlernen
                   </a>
                 </Button>
@@ -240,7 +240,7 @@ export default function KIPrototypingBegleitungPage() {
 
             <Card className="border-0 bg-gradient-to-br from-kivisai-light-cool-gray to-white shadow-lg">
               <CardContent className="p-6 text-center">
-                <img src="/images/4_KIVISAI-NAVI/KIVI-USECASE.png" alt="Use Case" className="w-12 h-12 mx-auto mb-4" />
+                <img src="/images-optimized/4_KIVISAI-NAVI/KIVI-USECASE.webp" alt="Use Case" className="w-12 h-12 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-kivisai-dark-blue mb-3">
                   Prototyp Beispiele
                 </h3>
@@ -250,7 +250,7 @@ export default function KIPrototypingBegleitungPage() {
                 </p>
                 <Button variant="kivisai" size="lg" className="w-full" asChild>
                   <a href="/leistungen/ki-prototyping">
-                    <img src="/images/4_KIVISAI-NAVI/KIVI-USECASE.png" alt="Use Case" className="w-4 h-4 mr-2" />
+                    <img src="/images-optimized/4_KIVISAI-NAVI/KIVI-USECASE.webp" alt="Use Case" className="w-4 h-4 mr-2" />
                     Beispiele ansehen
                   </a>
                 </Button>

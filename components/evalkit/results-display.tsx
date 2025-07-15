@@ -257,7 +257,7 @@ export default function ResultsDisplay({ result, onRestart, onNewRole }: Results
                     <div className="mb-3 flex justify-center">
                       <div className="w-12 h-12 bg-kivisai-light-cool-gray rounded-full flex items-center justify-center">
                         <img
-                          src={`/images/KIVI_${category}.png`}
+                          src={`/images-optimized/KIVI_${category}.webp`}
                           alt={`${category} Icon`}
                           width={32}
                           height={32}
@@ -350,8 +350,8 @@ export default function ResultsDisplay({ result, onRestart, onNewRole }: Results
                   <p className="text-sm text-kivisai-moss-green mb-3">
                     Perfekt für Ihren aktuellen Stand. Identifizieren Sie konkrete KI-Anwendungsfälle.
                   </p>
-                  <Button variant="outline" size="sm">
-                    Mehr erfahren
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/leistungen/ki-potenzialanalyse">Mehr erfahren</a>
                   </Button>
                 </div>
 
@@ -360,8 +360,8 @@ export default function ResultsDisplay({ result, onRestart, onNewRole }: Results
                   <p className="text-sm text-kivisai-moss-green mb-3">
                     Schneller Einstieg in die KI-Welt mit praktischen Übungen und Tools.
                   </p>
-                  <Button variant="outline" size="sm">
-                    Programm ansehen
+                  <Button variant="outline" size="sm" asChild>
+                    <a href="/leistungen/coaching-training">Programm ansehen</a>
                   </Button>
                 </div>
               </div>

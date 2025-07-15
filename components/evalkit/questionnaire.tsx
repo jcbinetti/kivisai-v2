@@ -15,11 +15,11 @@ interface QuestionnaireProps {
 }
 
 const categoryImages = {
-  THINK: "/images/KIVI_THINK.png",
-  ENABLE: "/images/KIVI_ENABLE.png",
-  SHARE: "/images/KIVI_SHARE.png",
-  GROW: "/images/KIVI_GROW.png",
-  REFLECT: "/images/KIVI_REFLECT.png",
+  THINK: "/images-optimized/4_KIVISAI-NAVI/KIVI_THINK.webp",
+  ENABLE: "/images-optimized/4_KIVISAI-NAVI/KIVI_ENABLE.webp",
+  SHARE: "/images-optimized/4_KIVISAI-NAVI/KIVI_SHARE.webp",
+  GROW: "/images-optimized/4_KIVISAI-NAVI/KIVI_GROW.webp",
+  REFLECT: "/images-optimized/4_KIVISAI-NAVI/KIVI_REFLECT.webp",
 }
 
 const categoryDescriptions = {
@@ -111,13 +111,13 @@ export default function Questionnaire({ roleId, onComplete, onBack }: Questionna
             <Image
               src={
                 role.id === "mensch"
-                  ? "/images/1751137231571_KIVI_Mensch.png"
+                  ? "/images-optimized/2_KIVI_4_EBENE/KIVI_Mensch.webp"
                   : role.id === "team"
-                  ? "/images/1751137237409_KIVI_Team.png"
+                  ? "/images-optimized/2_KIVI_4_EBENE/KIVI_Team.webp"
                   : role.id === "organisation"
-                  ? "/images/1751137236725_KIVI_Orga.png"
+                  ? "/images-optimized/2_KIVI_4_EBENE/KIVI_Orga.webp"
                   : role.id === "oekosystem"
-                  ? "/images/1751137233943_KIVI__kosystem.PNG"
+                  ? "/images-optimized/2_KIVI_4_EBENE/KIVI_Oekosystem.webp"
                   : ""
               }
               alt={role.name}
@@ -139,7 +139,7 @@ export default function Questionnaire({ roleId, onComplete, onBack }: Questionna
           <div className="flex items-center gap-4">
             <div className="flex-shrink-0">
               <Image
-                src={categoryImages[currentCategory as keyof typeof categoryImages] || "/images/KIVI_THINK.png"}
+                src={categoryImages[currentCategory as keyof typeof categoryImages] || "/images-optimized/4_KIVISAI-NAVI/KIVI_THINK.webp"}
                 alt={`${currentCategory} Icon`}
                 width={60}
                 height={60}

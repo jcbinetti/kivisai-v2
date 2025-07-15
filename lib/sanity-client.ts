@@ -2,7 +2,7 @@ import { createClient } from "@sanity/client"
 import imageUrlBuilder from "@sanity/image-url"
 import { createClient as nextSanityClient } from 'next-sanity'
 
-// Einheitliche Sanity-Konfiguration
+// Einheitliche Sanity-Konfiguration - OPTIMIERT für Performance
 const SANITY_CONFIG = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "kpbuonm3",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
@@ -11,8 +11,13 @@ const SANITY_CONFIG = {
   token: process.env.SANITY_API_TOKEN, // Nur für Write-Operationen
 }
 
-// Sanity Client für API-Operationen
-export const sanityClient = createClient(SANITY_CONFIG)
+// Sanity Client für API-Operationen - mit Caching
+export const sanityClient = createClient({
+  ...SANITY_CONFIG,
+  // Performance-Optimierungen
+  perspective: "published",
+  stega: false, // Visual Editing deaktivieren
+})
 
 // Next-Sanity Client für Frontend mit optimiertem Caching
 export const nextSanityClientInstance = nextSanityClient({
@@ -20,6 +25,10 @@ export const nextSanityClientInstance = nextSanityClient({
   useCdn: process.env.NODE_ENV === "production", // CDN in Production aktivieren
   perspective: "published", // Nur veröffentlichte Inhalte
   stega: false, // Visual Editing deaktivieren für bessere Performance
+  // Zusätzliche Performance-Optimierungen
+  apiVersion: "2024-01-01",
+  // Caching-Strategie
+  cache: process.env.NODE_ENV === "production" ? "force-cache" : "no-store",
 })
 
 // Image URL Builder

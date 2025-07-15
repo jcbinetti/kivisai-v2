@@ -71,7 +71,7 @@ export default function ProjektTeamKIPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/2_KIVI_4_EBENE/KIVI_Team_Flat.png"
+                src="/images-optimized/2_KIVI_4_EBENE/KIVI_Team_Flat.webp"
                 alt="KIVISAI Team - Zusammenarbeit und Netzwerk"
                 width={600}
                 height={400}

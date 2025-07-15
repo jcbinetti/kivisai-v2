@@ -78,7 +78,7 @@ export default function NetzwerkGraphPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/UC_Netzwerkpexels-kindelmedia-7054722.png"
+                src="/images-optimized/UC_Netzwerkpexels-kindelmedia-7054722.webp"
                 alt="Komplexe, verworrene Netzwerkstrukturen - Metapher für unstrukturierte Daten"
                 fill
                 className="object-cover"
@@ -234,7 +234,7 @@ export default function NetzwerkGraphPage() {
 
                 <div className="aspect-video w-full bg-gray-100 rounded-lg overflow-hidden mb-6">
                   <Image
-                    src="/images/2_KIVI_4_EBENE/KIVI_oekosystem.png"
+                    src="/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp"
                     alt="KIVISAI Netzwerk-Graph Visualisierung"
                     width={800}
                     height={600}

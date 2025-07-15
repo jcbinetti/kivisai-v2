@@ -76,21 +76,37 @@ export default function HomePage() {
           {/* Links: Badge + Text im Kasten */}
           <div className="flex flex-col md:flex-row items-center md:items-start max-w-lg w-full bg-white/20 rounded-xl p-8 shadow-lg backdrop-blur-md gap-0 md:gap-6">
             <Image
-              src="/images/Badges_Autorisierter_INQA-Coach_2025-2026.png"
+              src="/images-optimized/Badges_Autorisierter_INQA-Coach_2025-2026.webp"
               alt="Autorisierter INQA-Coach 2025-2026"
-              width={160}
-              height={160}
-              className="mb-6 md:mb-0 drop-shadow-2xl"
+              width={120}
+              height={60}
+              className="h-auto"
             />
             <span className="text-lg md:text-xl font-semibold text-white drop-shadow-lg text-left md:ml-4" style={{textShadow:'0 2px 8px #0008'}}>
               Als autorisierter INQA-Coach unterstützen wir Sie bei der digitalen Transformation.
             </span>
           </div>
-          {/* Rechts: große Headline, Buttons */}
+          {/* Rechts: große Headline, Buttons + Förderlabel */}
           <div className="flex-1 flex flex-col justify-center items-start gap-6">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2 text-left drop-shadow-lg" style={{textShadow:'0 2px 8px #0008'}}>
               Sichern Sie jetzt 80% Förderung für Ihre KI-Lernreise – Exklusiv für KMU
             </h2>
+            
+            {/* Förderlabel integriert */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-4 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div className="flex items-center gap-3">
+                <div className="text-2xl">💰</div>
+                <div className="text-center sm:text-left">
+                  <div className="text-sm text-white/80 font-medium">Statt 14.400€</div>
+                  <div className="text-xl font-bold text-white">nur 2.880€</div>
+                </div>
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="text-sm text-white/80 font-medium">Dank Förderung durch das</div>
+                <div className="text-lg font-bold text-white">Bundesministerium für Arbeit & Soziales</div>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-6 w-full">
               <a
                 href="/leistungen/inqa-coaching"
@@ -161,7 +177,7 @@ export default function HomePage() {
             {/* Spalte 3: CTA mit Karte */}
             <div className="flex flex-col justify-start items-center text-center bg-kivisai-clear-turquoise/10 border border-kivisai-clear-turquoise/20 rounded-lg p-6 h-full">
               <img
-                src="/images/KIVISAI_Schatzkarte.webp"
+                src="/images-optimized/KIVISAI_Schatzkarte.webp"
                 alt="KIVISAI Wirkungslandkarte"
                 className="rounded-lg shadow-lg object-contain max-h-80 w-full mb-4"
                 style={{ background: '#eaf6f7' }}
@@ -199,7 +215,7 @@ export default function HomePage() {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="h-48 relative overflow-hidden">
                 <Image
-                  src="/images/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.png"
+                  src="/images-optimized/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.webp"
                   alt="Persönlicher KI-Assistent unterstützt Mitarbeiter bei täglichen Aufgaben: Moderne Arbeitsplätze mit intelligenten digitalen Tools für optimierte Produktivität und Effizienzsteigerung"
                   width={400}
                   height={200}
@@ -228,7 +244,7 @@ export default function HomePage() {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="h-48 relative overflow-hidden">
                 <Image
-                  src="/images/2_KIVI_4_EBENE/KIVI_Team_Flat.png"
+                  src="/images-optimized/2_KIVI_4_EBENE/KIVI_Team_Flat.webp"
                   alt="Team-Kollaboration - Drei Personen arbeiten gemeinsam mit KI-Tools"
                   width={400}
                   height={200}
@@ -257,7 +273,7 @@ export default function HomePage() {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="h-48 relative overflow-hidden">
                 <Image
-                  src="/images/2_KIVI_4_EBENE/KIVI_Organisation.png"
+                  src="/images-optimized/2_KIVI_4_EBENE/KIVI_Organisation.webp"
                   alt="Organisations-KI - Team vor Monitor mit KI-Gehirn und Wachstumskurve"
                   width={400}
                   height={200}
@@ -286,7 +302,7 @@ export default function HomePage() {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg">
               <div className="h-48 relative overflow-hidden">
                 <Image
-                  src="/images/2_KIVI_4_EBENE/KIVI_oekosystem.png"
+                  src="/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp"
                   alt="Netzwerk-Intelligenz - KIVISAI Team arbeitet an KI-Lösungen für Ökosysteme"
                   width={400}
                   height={200}
@@ -328,7 +344,7 @@ export default function HomePage() {
             {/* NUR DAS SIGNET, KEIN BILD DARÜBER */}
             <div className="flex justify-center mt-8">
               <a href="/ueber-kivisai" title="Zur Bedeutung & Vision von KIVISAI">
-                <img src="/images/KIVISAI_signet_tr.png" alt="KIVISAI Logo" className="w-32 h-auto hover:scale-105 transition-transform duration-200" />
+                <img src="/images-optimized/KIVISAI_signet_tr.webp" alt="KIVISAI Logo" className="w-32 h-auto hover:scale-105 transition-transform duration-200" />
               </a>
             </div>
           </div>
@@ -337,11 +353,11 @@ export default function HomePage() {
 
       {/* EVALKIT Teaser Section */}
       <EvalkitTeaserSection
-        title="Bist du Fit für KI? Teste dich aus 4 Perspektiven!"
-        description="Entdecken Sie Ihre KI-Fitness aus der Sicht von Mensch, Team, Organisation oder Ökosystem. Unser strukturierter Test zeigt Ihnen, wo Sie stehen und wie Sie sich weiterentwickeln können."
-        imageSrc="/images/4_KIVISAI-NAVI/KIVI_Selbsteval_jung _breit.png"
+        title="Wegweiser: Finde deinen KI-Startpunkt!"
+        description="Navigieren Sie durch die vier Wirkungsebenen der KI-Transformation: Mensch, Team, Organisation und Ökosystem. Unser strukturierter Test zeigt Ihnen, auf welcher Ebene Ihre größten Hebel liegen und wie Sie gezielt Ihre nächsten Schritte planen können."
+        imageSrc="/images-optimized/4_KIVISAI-NAVI/KIVI_Selbsteval_jung _breit.webp"
         imageAlt="Illustration: Selbstevaluation der KI-Fitness für Organisationen - Jung und dynamisch gestaltet"
-        ctaText="Jetzt KI-Fitness testen"
+        ctaText="Jetzt Wegweiser nutzen"
         ctaHref="/evalkit"
       />
 
@@ -446,7 +462,7 @@ export default function HomePage() {
             {/* Image Section */}
             <div className="relative h-64 lg:h-auto overflow-hidden">
               <img
-                src="/images/6_KIVI-SZENEN/KIVI_Prototyping_hoch.png"
+                src="/images-optimized/6_KIVI-SZENEN/KIVI_Prototyping_hoch.webp"
                 alt="KI-Prototyping Beispiele - 12 verschiedene KI-Lösungen für Unternehmen"
                 width={600}
                 height={400}

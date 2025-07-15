@@ -21,7 +21,7 @@ export default function PrinzipienPage() {
         size="xl"
         variant="centered"
         image={{
-          src: "/images/KIVISAI_signet_tr.png",
+          src: "/images-optimized/KIVISAI_signet_tr.webp",
           alt: "KIVISAI Signet",
           position: "right"
         }}

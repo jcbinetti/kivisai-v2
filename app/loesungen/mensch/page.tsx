@@ -91,7 +91,7 @@ export default function MenschKIPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.png"
+                src="/images-optimized/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.webp"
                 alt="Persönlicher KI-Assistent unterstützt Menschen bei täglichen Aufgaben: Moderne Arbeitsplätze mit intelligenten digitalen Tools für optimierte Produktivität und Kompetenzentwicklung"
                 fill
                 className="object-cover"
@@ -407,7 +407,7 @@ export default function MenschKIPage() {
                   </div>
                   <div className="h-24 relative rounded overflow-hidden">
                     <Image
-                      src="/images/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.png"
+                      src="/images-optimized/2_KIVI_4_EBENE/KIVI_Menschen_Assistent_Flat.webp"
                       alt="Mensch Ebene"
                       fill
                       className="object-cover"
@@ -430,7 +430,7 @@ export default function MenschKIPage() {
                   </div>
                   <div className="h-24 relative rounded overflow-hidden">
                     <Image
-                      src="/images/2_KIVI_4_EBENE/KIVI_Team_Flat.png"
+                      src="/images-optimized/2_KIVI_4_EBENE/KIVI_Team_Flat.webp"
                       alt="Team Ebene"
                       fill
                       className="object-cover"
@@ -453,7 +453,7 @@ export default function MenschKIPage() {
                   </div>
                   <div className="h-24 relative rounded overflow-hidden">
                     <Image
-                      src="/images/2_KIVI_4_EBENE/KIVI_Organisation.png"
+                      src="/images-optimized/2_KIVI_4_EBENE/KIVI_Organisation.webp"
                       alt="Organisation Ebene"
                       fill
                       className="object-cover"
@@ -476,7 +476,7 @@ export default function MenschKIPage() {
                   </div>
                   <div className="h-24 relative rounded overflow-hidden">
                     <Image
-                      src="/images/2_KIVI_4_EBENE/KIVI_oekosystem.png"
+                      src="/images-optimized/2_KIVI_4_EBENE/KIVI_oekosystem.webp"
                       alt="Ökosystem Ebene"
                       fill
                       className="object-cover"

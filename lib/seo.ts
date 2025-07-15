@@ -83,7 +83,7 @@ export class SEOManager {
           ...baseData,
           name: "KIVISAI",
           url: "https://kivisai.com",
-          logo: "https://kivisai.com/images/KIVISAI_logo_TR.png",
+          logo: "https://kivisai.com/images-optimized/KIVISAI_logo_TR.webp",
           description: "KI-Beratung und Transformation für Unternehmen",
           address: {
             "@type": "PostalAddress",
@@ -123,7 +123,7 @@ export class SEOManager {
             name: "KIVISAI",
             logo: {
               "@type": "ImageObject",
-              url: "https://kivisai.com/images/KIVISAI_logo_TR.png",
+              url: "https://kivisai.com/images-optimized/KIVISAI_logo_TR.webp",
             },
           },
           author: {

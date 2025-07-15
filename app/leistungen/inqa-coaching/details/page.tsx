@@ -51,10 +51,10 @@ export default function INQACoachingMethodePage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-6">
               <SafeImage
-                src="/images/Badges_Autorisierter_INQA-Coach_2025-2026.png"
+                src="/images-optimized/Badges_Autorisierter_INQA-Coach_2025-2026.webp"
                 alt="Autorisierter INQA-Coach 2025-2026"
                 width={120}
-                height={120}
+                height={60}
                 className="h-auto"
               />
             </div>

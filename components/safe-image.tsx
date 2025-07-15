@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from 'next/image'
 import { urlFor } from '@/lib/sanity-client'
 
@@ -23,27 +23,63 @@ function SafeImage({
   priority = false,
   fallbackSrc = '/placeholder.svg'
 }: SafeImageProps) {
-  const [imgSrc, setImgSrc] = useState<string>(() => {
+  const [imgSrc, setImgSrc] = useState<string>(fallbackSrc)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+    
     // Handle string URLs
     if (typeof src === 'string') {
-      return src || fallbackSrc
+      setImgSrc(src || fallbackSrc)
+      return
     }
     
     // Handle Sanity image objects
     if (src && src.asset) {
       try {
-        return urlFor(src).url()
+        const sanityUrl = urlFor(src).url()
+        setImgSrc(sanityUrl)
       } catch (error) {
         console.error('Error generating image URL:', error)
-        return fallbackSrc
+        setImgSrc(fallbackSrc)
       }
+    } else {
+      setImgSrc(fallbackSrc)
     }
-    
-    return fallbackSrc
-  })
+  }, [src, fallbackSrc])
 
   const handleError = () => {
     setImgSrc(fallbackSrc)
+  }
+
+  // SSR: For static images (logo etc.), render directly
+  if (typeof src === 'string' && src.startsWith('/images-optimized/')) {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        priority={priority}
+        onError={handleError}
+      />
+    )
+  }
+
+  // For SSR, render with fallback to avoid hydration mismatch for dynamic images
+  if (!isMounted) {
+    return (
+      <Image
+        src={fallbackSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        priority={priority}
+      />
+    )
   }
 
   return (

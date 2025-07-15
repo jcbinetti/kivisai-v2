@@ -4,6 +4,8 @@ export interface MenuItem {
   description?: string
   children?: MenuItem[]
   isHighlighted?: boolean
+  requiresAuth?: boolean
+  requiresAdmin?: boolean
 }
 
 export const menuItems: MenuItem[] = [
@@ -173,22 +175,65 @@ export const menuItems: MenuItem[] = [
     name: "Admin",
     href: "/admin",
     description: "Administrative Funktionen und Tests",
+    requiresAuth: true,
+    requiresAdmin: true,
     children: [
       {
         name: "Dashboard",
         href: "/admin",
         description: "Übersicht und Statistiken",
+        requiresAuth: true,
+        requiresAdmin: true,
       },
       {
         name: "Website-Test",
         href: "/comprehensive-test.html",
         description: "Umfassender System-Test",
+        requiresAuth: true,
+        requiresAdmin: true,
       },
       {
         name: "Schneller Test",
         href: "/simple-test.html",
         description: "Schneller Technik-Test",
+        requiresAuth: true,
+        requiresAdmin: true,
       },
     ],
   },
 ]
+
+// Helper function to filter menu items based on authentication
+export function getFilteredMenuItems(isAuthenticated: boolean, isAdmin: boolean): MenuItem[] {
+  return menuItems.filter(item => {
+    // Check if item requires authentication
+    if (item.requiresAuth && !isAuthenticated) {
+      return false;
+    }
+    
+    // Check if item requires admin privileges
+    if (item.requiresAdmin && !isAdmin) {
+      return false;
+    }
+    
+    // Filter children recursively
+    if (item.children) {
+      item.children = item.children.filter(child => {
+        if (child.requiresAuth && !isAuthenticated) {
+          return false;
+        }
+        if (child.requiresAdmin && !isAdmin) {
+          return false;
+        }
+        return true;
+      });
+      
+      // Only show parent if it has visible children or doesn't require auth
+      if (item.requiresAuth && item.children.length === 0) {
+        return false;
+      }
+    }
+    
+    return true;
+  });
+}

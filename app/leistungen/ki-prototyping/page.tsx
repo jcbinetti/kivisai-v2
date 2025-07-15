@@ -57,15 +57,15 @@ export default function KIPrototypingPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-              <img src="/images/4_KIVISAI-NAVI/KIVI_ENABLE.png" alt="Enable" className="w-4 h-4 mr-2" />
+              <img src="/images-optimized/4_KIVISAI-NAVI/KIVI_ENABLE.webp" alt="Enable" className="w-4 h-4 mr-2" />
               Schlank & fokussiert
             </Badge>
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-              <img src="/images/4_KIVISAI-NAVI/KIVI_Mensch.png" alt="Mensch" className="w-4 h-4 mr-2" />
+              <img src="/images-optimized/4_KIVISAI-NAVI/KIVI_Mensch.webp" alt="Mensch" className="w-4 h-4 mr-2" />
               Menschenzentriert
             </Badge>
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-              <img src="/images/4_KIVISAI-NAVI/KIVI-USECASE.png" alt="Use Case" className="w-4 h-4 mr-2" />
+              <img src="/images-optimized/4_KIVISAI-NAVI/KIVI-USECASE.webp" alt="Use Case" className="w-4 h-4 mr-2" />
               MVP-orientiert
             </Badge>
           </div>
@@ -159,7 +159,7 @@ export default function KIPrototypingPage() {
             {/* Image Section */}
             <div className="relative h-64 lg:h-auto overflow-hidden">
               <SafeImage
-                src="/images/6_KIVI-SZENEN/KIVI_Prototyping_hoch.png"
+                src="/images-optimized/6_KIVI-SZENEN/KIVI_Prototyping_hoch.webp"
                 alt="KI-Prototyping Beispiele - 12 verschiedene KI-Lösungen für Unternehmen"
                 width={600}
                 height={400}
@@ -256,7 +256,7 @@ export default function KIPrototypingPage() {
               <div key={index} className="flex items-start gap-4 p-4 bg-gradient-to-r from-kivisai-light-cool-gray to-white rounded-lg">
                 <div className="flex flex-col items-center w-24">
                   <img 
-                    src={`/images/4_KIVISAI-NAVI/KIVI_${promise.phase}.png`}
+                    src={`/images-optimized/4_KIVISAI-NAVI/KIVI_${promise.phase}.webp`}
                     alt={`KIVI ${promise.phase} Icon`}
                     className="w-20 h-20 mb-2 object-contain"
                   />
@@ -281,7 +281,7 @@ export default function KIPrototypingPage() {
         <p className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-kivisai-clear-turquoise via-kivisai-blue to-kivisai-vibrant-turquoise bg-clip-text text-transparent mb-8 animate-pulse-slow" style={{ animation: 'pulse 2.5s infinite' }}>
           Start to act.
         </p>
-        <img src="/images/KIVISAI_signet_tr.png" alt="KIVISAI Signet" className="mx-auto w-24 h-24 opacity-80 mb-8" />
+        <img src="/images-optimized/KIVISAI_signet_tr.webp" alt="KIVISAI Signet" className="mx-auto w-24 h-24 opacity-80 mb-8" />
       </section>
 
       {/* Navigation zu Unterseiten */}

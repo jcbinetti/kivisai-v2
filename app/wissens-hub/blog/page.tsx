@@ -3,26 +3,39 @@ import { Metadata } from "next";
 import { getBlogPostsWithPagination, getCategories, BlogPost } from "@/lib/sanity-client";
 import { getImageUrl, getImageAlt } from "@/lib/image-utils";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
-import { PortableText } from '@portabletext/react'
+import { PortableText, PortableTextComponents } from '@portabletext/react'
 
-const myComponents = {
+const portableTextComponents: PortableTextComponents = {
   block: {
-    normal: ({ children }: { children: any }) => <p>{children}</p>,
-    h2: ({ children }: { children: any }) => <h2>{children}</h2>,
-    h3: ({ children }: { children: any }) => <h3>{children}</h3>,
-    blockquote: ({ children }: { children: any }) => <blockquote>{children}</blockquote>,
+    normal: ({ children }) => <p className="mb-4 text-kivisai-moss-green leading-relaxed">{children}</p>,
+    h2: ({ children }) => <h2 className="text-2xl font-bold mb-3 text-kivisai-deep-dark-blue">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-semibold mb-2 text-kivisai-deep-dark-blue">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-lg font-semibold mb-2 text-kivisai-deep-dark-blue">{children}</h4>,
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-kivisai-clear-turquoise pl-4 italic text-kivisai-moss-green mb-4">{children}</blockquote>
+    ),
   },
   list: {
-    bullet: ({ children }: { children: any }) => <ul>{children}</ul>,
-    number: ({ children }: { children: any }) => <ol>{children}</ol>,
+    bullet: ({ children }) => <ul className="list-disc ml-6 mb-4">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal ml-6 mb-4">{children}</ol>,
   },
   listItem: {
-    bullet: ({ children }: { children: any }) => <li>{children}</li>,
-    number: ({ children }: { children: any }) => <li>{children}</li>,
+    bullet: ({ children }) => <li className="mb-2">{children}</li>,
+    number: ({ children }) => <li className="mb-2">{children}</li>,
   },
   marks: {
-    strong: ({ children }: { children: any }) => <strong>{children}</strong>,
-    em: ({ children }: { children: any }) => <em>{children}</em>,
+    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+    em: ({ children }) => <em className="italic">{children}</em>,
+    link: ({ value, children }) => (
+      <a
+        href={value?.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-kivisai-clear-turquoise underline hover:text-kivisai-deep-dark-blue"
+      >
+        {children}
+      </a>
+    ),
   },
 }
 
@@ -51,44 +64,15 @@ export const metadata: Metadata = {
 export default async function BlogPage({ 
     searchParams 
 }: { 
-    searchParams: Promise<{ 
+    searchParams?: Promise<{ 
         category?: string;
         page?: string;
     }> 
 }) {
-    // Fix für Next.js 15: searchParams als Promise behandeln
-    let params;
-    try {
-        params = await searchParams;
-    } catch (error) {
-        console.error('Error awaiting searchParams:', error);
-        params = {};
-    }
-    
+    const params = await searchParams;
     const category = params?.category;
     const page = params?.page || "1";
     const currentPage = parseInt(page) || 1;
-    
-    // Additional debugging
-    console.log('Raw searchParams:', searchParams);
-    console.log('Resolved params:', params);
-    console.log('Category from params:', category);
-    console.log('All params keys:', Object.keys(params || {}));
-    console.log('Category value:', category);
-    console.log('Category type:', typeof category);
-    
-    console.log('Blog page params:', { 
-        category, 
-        page: currentPage, 
-        params, 
-        searchParamsType: typeof searchParams,
-        searchParamsKeys: Object.keys(params || {}),
-        hasCategory: 'category' in (params || {}),
-        rawSearchParams: searchParams,
-        categoryValue: category,
-        categoryType: typeof category,
-        url: typeof window !== 'undefined' ? window.location.href : 'server-side'
-    }) // Debug log
     
     const [postsData, categories] = await Promise.all([
         getBlogPostsWithPagination(currentPage, 12, category),
