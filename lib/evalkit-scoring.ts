@@ -15,6 +15,7 @@ export interface EvaluationResult {
   recommendations: string[]
   strengths: string[]
   developmentAreas: string[]
+  answers: Record<string, number> // Raw questionnaire responses
 }
 
 export interface BenchmarkData {
@@ -69,6 +70,7 @@ export function calculateScores(answers: Record<string, number>, roleId: string)
     recommendations,
     strengths,
     developmentAreas,
+    answers,
   }
 }
 
